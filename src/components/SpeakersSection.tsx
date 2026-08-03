@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { speakerGroups, Speaker } from '@/lib/data';
 
@@ -30,13 +31,12 @@ function SpeakerCardMedia({ speaker, isSpecial = false }: { speaker: Speaker; is
           src={speaker.image}
           alt={speaker.name}
           onError={() => setImageError(true)}
-          className="w-full h-full object-cover object-center relative z-10 transition-transform duration-500 hover:scale-105"
+          className="w-full h-full object-cover object-center relative z-10 transition-transform duration-500 group-hover:scale-105"
         />
       ) : (
         <div className="w-full h-full flex flex-col items-center justify-center relative z-10 p-4 text-center">
-          {/* Subtle watermark logo pattern in fallback */}
           <span
-            className={`font-bold tracking-widest text-[42px] sm:text-[48px] select-none ${
+            className={`font-bold tracking-widest text-[42px] sm:text-[48px] select-none transition-transform duration-300 group-hover:scale-110 ${
               isSpecial ? 'text-[#D4AF37]' : 'text-[#8B1E3F]'
             }`}
             style={{ fontFamily: "'Playfair Display', serif" }}
@@ -99,40 +99,54 @@ function MobileGroupCarousel({ items, groupTitle }: { items: Speaker[]; groupTit
           const isMara = sp.name.toLowerCase().includes('mara maravilha');
 
           return (
-            <div
+            <Link
               key={sp.id}
-              className={`flex-none w-[82vw] max-w-[320px] snap-center flex flex-col rounded-xl border transition-all overflow-hidden ${
+              href={`/palestrantes/${sp.id}`}
+              className={`group flex-none w-[82vw] max-w-[320px] snap-center flex flex-col rounded-xl border transition-all overflow-hidden cursor-pointer ${
                 isMara
                   ? 'bg-[#3D1220] text-[#FDFBF7] border-[#D4AF37] shadow-xl ring-2 ring-[#D4AF37]/40'
-                  : 'bg-[#FDFBF7] text-[#3D1220] border-[rgba(212,175,55,0.35)] shadow-md'
+                  : 'bg-[#FDFBF7] text-[#3D1220] border-[rgba(212,175,55,0.35)] shadow-md hover:border-[#D4AF37]'
               }`}
             >
               <SpeakerCardMedia speaker={sp} isSpecial={isMara} />
               <div className="p-5 flex flex-col justify-between flex-1 text-center">
-                <div
-                  className="mb-2"
-                  style={{
-                    fontFamily: "'Playfair Display', serif",
-                    fontWeight: 700,
-                    fontSize: isMara ? 20 : 18,
-                    color: isMara ? '#FDFBF7' : '#3D1220',
-                  }}
-                >
-                  {sp.name}
+                <div>
+                  <div
+                    className="mb-1.5 group-hover:text-[#8B1E3F] transition-colors"
+                    style={{
+                      fontFamily: "'Playfair Display', serif",
+                      fontWeight: 700,
+                      fontSize: isMara ? 20 : 18,
+                      color: isMara ? '#FDFBF7' : '#3D1220',
+                    }}
+                  >
+                    {sp.name}
+                  </div>
+                  <div
+                    style={{
+                      fontFamily: "'Cormorant Garamond', serif",
+                      fontStyle: 'italic',
+                      fontSize: isMara ? 16 : 14.5,
+                      lineHeight: 1.45,
+                      color: isMara ? '#E8D5CE' : '#5C4A50',
+                    }}
+                  >
+                    {sp.talk}
+                  </div>
                 </div>
+
                 <div
-                  style={{
-                    fontFamily: "'Cormorant Garamond', serif",
-                    fontStyle: 'italic',
-                    fontSize: isMara ? 16 : 14.5,
-                    lineHeight: 1.45,
-                    color: isMara ? '#E8D5CE' : '#5C4A50',
-                  }}
+                  className={`text-[11.5px] font-bold uppercase tracking-wider mt-3 pt-3 border-t flex items-center justify-center gap-1 group-hover:translate-x-0.5 transition-all ${
+                    isMara
+                      ? 'border-[#D4AF37]/30 text-[#D4AF37]'
+                      : 'border-[rgba(139,30,63,0.1)] text-[#8B1E3F]'
+                  }`}
                 >
-                  {sp.talk}
+                  <span>Ver detalhes da palestra</span>
+                  <span>→</span>
                 </div>
               </div>
-            </div>
+            </Link>
           );
         })}
       </div>
@@ -234,6 +248,9 @@ export default function SpeakersSection() {
         >
           Quem vai estar com você
         </h2>
+        <p className="text-[14px] text-[#5C4A50] mt-2 mb-0">
+          Clique no card de qualquer palestrante para ver o tema completo e o perfil detalhado.
+        </p>
       </motion.div>
 
       {/* Speaker Groups */}
@@ -281,40 +298,54 @@ export default function SpeakersSection() {
                     const isMara = sp.name.toLowerCase().includes('mara maravilha');
 
                     return (
-                      <div
+                      <Link
                         key={sp.id}
-                        className={`flex flex-col items-center text-center rounded-xl border transition-all overflow-hidden ${
+                        href={`/palestrantes/${sp.id}`}
+                        className={`group flex flex-col items-center text-center rounded-xl border transition-all overflow-hidden cursor-pointer ${
                           isMara
                             ? 'w-full max-w-[380px] bg-[#3D1220] text-[#FDFBF7] border-[#D4AF37] shadow-xl hover:shadow-2xl hover:scale-[1.02] ring-2 ring-[#D4AF37]/40'
-                            : 'bg-[#FDFBF7] text-[#3D1220] border-[rgba(212,175,55,0.35)] shadow-sm hover:shadow-md hover:-translate-y-1'
+                            : 'bg-[#FDFBF7] text-[#3D1220] border-[rgba(212,175,55,0.35)] shadow-sm hover:shadow-md hover:-translate-y-1 hover:border-[#D4AF37]'
                         }`}
                       >
                         <SpeakerCardMedia speaker={sp} isSpecial={isMara} />
                         <div className="p-5 sm:p-6 flex flex-col items-center justify-between flex-1 w-full">
-                          <div
-                            className="mb-2"
-                            style={{
-                              fontFamily: "'Playfair Display', serif",
-                              fontWeight: 700,
-                              fontSize: isMara ? 21 : 18,
-                              color: isMara ? '#FDFBF7' : '#3D1220',
-                            }}
-                          >
-                            {sp.name}
+                          <div>
+                            <div
+                              className="mb-1.5 group-hover:text-[#8B1E3F] transition-colors"
+                              style={{
+                                fontFamily: "'Playfair Display', serif",
+                                fontWeight: 700,
+                                fontSize: isMara ? 21 : 18,
+                                color: isMara ? '#FDFBF7' : '#3D1220',
+                              }}
+                            >
+                              {sp.name}
+                            </div>
+                            <div
+                              style={{
+                                fontFamily: "'Cormorant Garamond', serif",
+                                fontStyle: 'italic',
+                                fontSize: isMara ? 16.5 : 15,
+                                lineHeight: 1.45,
+                                color: isMara ? '#E8D5CE' : '#5C4A50',
+                              }}
+                            >
+                              {sp.talk}
+                            </div>
                           </div>
+
                           <div
-                            style={{
-                              fontFamily: "'Cormorant Garamond', serif",
-                              fontStyle: 'italic',
-                              fontSize: isMara ? 16.5 : 15,
-                              lineHeight: 1.45,
-                              color: isMara ? '#E8D5CE' : '#5C4A50',
-                            }}
+                            className={`text-[11.5px] font-bold uppercase tracking-wider mt-4 pt-3 border-t w-full flex items-center justify-center gap-1 group-hover:translate-x-0.5 transition-all ${
+                              isMara
+                                ? 'border-[#D4AF37]/30 text-[#D4AF37]'
+                                : 'border-[rgba(139,30,63,0.1)] text-[#8B1E3F]'
+                            }`}
                           >
-                            {sp.talk}
+                            <span>Ver detalhes da palestra</span>
+                            <span>→</span>
                           </div>
                         </div>
-                      </div>
+                      </Link>
                     );
                   })}
                 </div>
