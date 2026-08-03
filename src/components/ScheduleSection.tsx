@@ -123,7 +123,7 @@ export default function ScheduleSection() {
                       {item.speaker}
                     </div>
                     <div
-                      className="text-[14px] sm:text-[15px] font-medium leading-[1.4] text-[#8B1E3F]"
+                      className="text-[15.5px] sm:text-[17px] font-bold leading-[1.4] text-[#8B1E3F]"
                       style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: 'italic' }}
                     >
                       {item.talk}

@@ -53,7 +53,7 @@ export default function OrganizerSection() {
                   className="m-0 mb-1 text-[23px] font-bold text-[#FDFBF7]"
                   style={{ fontFamily: "'Playfair Display', serif" }}
                 >
-                  Mariane Rocha
+                  Mariana Rocha
                 </h4>
                 <span
                   className="text-[14.5px] font-semibold text-[#D4AF37] tracking-wide"
