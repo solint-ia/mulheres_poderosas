@@ -197,6 +197,7 @@ export const speakerGroups: SpeakerGroup[] = [
           'Leonardo Lima é especialista em crescimento acelerado de vendas com inteligência artificial, tendo ajudado centenas de empresas e profissionais autônomos a estruturarem processos comerciais modernos.',
         ],
         quote: 'A Inteligência Artificial não substitui pessoas; ela multiplica os resultados de quem sabe usá-la.',
+        image: '/palestrantes/Leonardo Lima.jpg',
         socials: { instagram: 'https://instagram.com', linkedin: 'https://linkedin.com' },
       },
       {
@@ -221,8 +222,8 @@ export const speakerGroups: SpeakerGroup[] = [
       },
       {
         id: 'sp-marcilio',
-        name: 'Marcilio e Antonio',
-        role: 'Especialistas em Direito Tributário & Soluções Corporativas',
+        name: 'Marcilio',
+        role: 'Especialista em Direito Tributário & Soluções Corporativas',
         category: 'Negócios, Tecnologia e Gestão',
         time: '10:00 às 10:20 · Bloco Manhã',
         talk: 'Benefícios voltados a produtos e serviços relacionados à saúde da mulher e Reforma Tributária',
@@ -234,7 +235,27 @@ export const speakerGroups: SpeakerGroup[] = [
           'Incentivos fiscais aplicáveis à promoção de saúde e bem-estar corporativo.',
         ],
         bio: [
-          'Marcilio e Antonio são especialistas em inteligência tributária e soluções corporativas, orientando empresários a maximizarem seus resultados operacionais com segurança jurídica.',
+          'Marcilio é especialista em inteligência tributária e soluções corporativas, orientando empresários a maximizarem seus resultados operacionais com segurança jurídica.',
+        ],
+        quote: 'Planejamento tributário não é custo, é investimento direto no lucro da sua empresa.',
+        socials: { linkedin: 'https://linkedin.com' },
+      },
+      {
+        id: 'sp-antonio',
+        name: 'Antonio',
+        role: 'Especialista em Direito Tributário & Soluções Corporativas',
+        category: 'Negócios, Tecnologia e Gestão',
+        time: '10:00 às 10:20 · Bloco Manhã',
+        talk: 'Benefícios voltados a produtos e serviços relacionados à saúde da mulher e Reforma Tributária',
+        talkDescription:
+          'Uma análise clara dos impactos da Reforma Tributária nas empresas femininas e como utilizar benefícios legais para reduzir impostos e investir na empresa.',
+        takeaways: [
+          'Como se preparar estrategicamente para as mudanças da Reforma Tributária.',
+          'Redução legal da carga tributária para clínicas, empresas e prestadoras de serviço.',
+          'Incentivos fiscais aplicáveis à promoção de saúde e bem-estar corporativo.',
+        ],
+        bio: [
+          'Antonio é especialista em inteligência tributária e soluções corporativas, orientando empresários a maximizarem seus resultados operacionais com segurança jurídica.',
         ],
         quote: 'Planejamento tributário não é custo, é investimento direto no lucro da sua empresa.',
         socials: { linkedin: 'https://linkedin.com' },
@@ -266,8 +287,8 @@ export const speakerGroups: SpeakerGroup[] = [
     items: [
       {
         id: 'sp-guilherme',
-        name: 'Dr. Guilherme Britto e Gabriela Benevides',
-        role: 'Especialistas em Desenvolvimento Humano & Gestão Emocional',
+        name: 'Dr. Guilherme Britto',
+        role: 'Especialista em Desenvolvimento Humano & Gestão Emocional',
         category: 'Mente, Genética e Equilíbrio',
         time: '11:00 às 11:40 · Bloco Manhã',
         talk: 'A mulher por trás da empreendedora de sucesso',
@@ -279,7 +300,28 @@ export const speakerGroups: SpeakerGroup[] = [
           'Alinhando ambição profissional com paz de espírito e presença familiar.',
         ],
         bio: [
-          'Dr. Guilherme Britto e Gabriela Benevides trabalham em dupla no desenvolvimento de líderes e casais empreendedores, unindo neurociência, comportamento e valores de vida.',
+          'Dr. Guilherme Britto atua no desenvolvimento de líderes e empreendedores, unindo neurociência, comportamento e valores de vida.',
+        ],
+        quote: 'Seu negócio nunca vai crescer mais rápido do que o seu desenvolvimento pessoal.',
+        image: '/palestrantes/Guilherme Lima Britto Aragão.jpeg',
+        socials: { instagram: 'https://instagram.com' },
+      },
+      {
+        id: 'sp-gabrielab',
+        name: 'Gabriela Benevides',
+        role: 'Especialista em Desenvolvimento Humano & Gestão Emocional',
+        category: 'Mente, Genética e Equilíbrio',
+        time: '11:00 às 11:40 · Bloco Manhã',
+        talk: 'A mulher por trás da empreendedora de sucesso',
+        talkDescription:
+          'Uma conversa profunda sobre inteligência emocional, identidade e superação da síndrome da impostora para construir uma jornada profissional leve e vitoriosa.',
+        takeaways: [
+          'Como desatar nós emocionais que travam o crescimento profissional.',
+          'Desenvolvimento de maturidade emocional no relacionamento com sócios e equipes.',
+          'Alinhando ambição profissional com paz de espírito e presença familiar.',
+        ],
+        bio: [
+          'Gabriela Benevides atua no desenvolvimento de líderes e empreendedoras, unindo comportamento, psicologia e inteligência emocional.',
         ],
         quote: 'Seu negócio nunca vai crescer mais rápido do que o seu desenvolvimento pessoal.',
         socials: { instagram: 'https://instagram.com' },
@@ -305,21 +347,41 @@ export const speakerGroups: SpeakerGroup[] = [
         socials: { instagram: 'https://instagram.com', linkedin: 'https://linkedin.com' },
       },
       {
-        id: 'sp-gabriela',
-        name: 'Dra. Gabriela Nabuco e Psicóloga Caroline Guimarães',
-        role: 'Especialistas em Saúde Mental & Psicologia Organizacional',
+        id: 'sp-gabrielan',
+        name: 'Dra. Gabriela Nabuco',
+        role: 'Médica Psiquiatra & Especialista em Saúde Mental',
         category: 'Mente, Genética e Equilíbrio',
         time: '16:00 às 16:40 · Bloco Tarde',
         talk: 'Saúde da mulher empreendedora: como crescer sem adoecer',
         talkDescription:
-          'Ferramentas de psicologia e psiquiatria preventiva para identificar sinais de burnout, ansiedade e exaustão antes que afetem sua vida física e seus negócios.',
+          'Ferramentas de medicina preventiva e psiquiatria para identificar sinais de burnout, ansiedade e exaustão antes que afetem sua vida física e seus negócios.',
         takeaways: [
           'Identificação precoce de esgotamento e sobrecarga mental.',
           'Técnicas de regulação do estresse para momentos de alta demanda ou transição.',
           'Criando um ambiente de trabalho emocionalmente saudável para você e sua equipe.',
         ],
         bio: [
-          'Dra. Gabriela Nabuco e Caroline Guimarães são especialistas em saúde mental feminina e orientam empreendedoras a manterem a saúde mental em dia durante o crescimento dos negócios.',
+          'Dra. Gabriela Nabuco é médica especialista em saúde mental feminina e orienta empreendedoras a manterem a saúde mental em dia durante o crescimento dos negócios.',
+        ],
+        quote: 'Sucesso sem saúde mental não é conquista, é insustentabilidade.',
+        socials: { instagram: 'https://instagram.com' },
+      },
+      {
+        id: 'sp-carolineg',
+        name: 'Psicóloga Caroline Guimarães',
+        role: 'Psicóloga Organizacional & Saúde Emocional',
+        category: 'Mente, Genética e Equilíbrio',
+        time: '16:00 às 16:40 · Bloco Tarde',
+        talk: 'Saúde da mulher empreendedora: como crescer sem adoecer',
+        talkDescription:
+          'Ferramentas de psicologia preventiva para identificar sinais de burnout, ansiedade e exaustão antes que afetem sua vida física e seus negócios.',
+        takeaways: [
+          'Identificação precoce de esgotamento e sobrecarga mental.',
+          'Técnicas de regulação do estresse para momentos de alta demanda ou transição.',
+          'Criando um ambiente de trabalho emocionalmente saudável para você e sua equipe.',
+        ],
+        bio: [
+          'Caroline Guimarães é psicóloga especialista em comportamento humano e saúde mental no trabalho.',
         ],
         quote: 'Sucesso sem saúde mental não é conquista, é insustentabilidade.',
         socials: { instagram: 'https://instagram.com' },
@@ -356,14 +418,16 @@ export const shift0Rows: ScheduleRow[] = [
   {
     time: '10:00 - 10:40',
     items: [
-      { speaker: 'Marcilio e Antonio', talk: 'Benefícios voltados a produtos e serviços relacionados à saúde da mulher e Reforma Tributária' },
+      { speaker: 'Marcilio', talk: 'Benefícios voltados a produtos e serviços relacionados à saúde da mulher e Reforma Tributária' },
+      { speaker: 'Antonio', talk: 'Benefícios voltados a produtos e serviços relacionados à saúde da mulher e Reforma Tributária' },
       { speaker: 'Dra. Ramonny', talk: 'Importância da NRJ para empresas' },
     ],
   },
   {
     time: '11:00 - 11:40',
     items: [
-      { speaker: 'Dr. Guilherme Britto e Gabriela Benevides', talk: 'A mulher por trás da empreendedora de sucesso' },
+      { speaker: 'Dr. Guilherme Britto', talk: 'A mulher por trás da empreendedora de sucesso' },
+      { speaker: 'Gabriela Benevides', talk: 'A mulher por trás da empreendedora de sucesso' },
     ],
   },
   {
@@ -396,7 +460,8 @@ export const shift1Rows: ScheduleRow[] = [
   {
     time: '16:00 - 16:40',
     items: [
-      { speaker: 'Dra. Gabriela Nabuco e Psicóloga Caroline Guimarães', talk: 'Saúde da mulher empreendedora: como crescer sem adoecer' },
+      { speaker: 'Dra. Gabriela Nabuco', talk: 'Saúde da mulher empreendedora: como crescer sem adoecer' },
+      { speaker: 'Psicóloga Caroline Guimarães', talk: 'Saúde da mulher empreendedora: como crescer sem adoecer' },
     ],
   },
   {
