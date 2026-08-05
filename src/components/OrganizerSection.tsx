@@ -29,6 +29,20 @@ export default function OrganizerSection() {
                   className="w-full max-w-[210px] sm:max-w-[230px] h-auto object-contain"
                 />
               </div>
+              <div>
+                <h4
+                  className="m-0 mb-1 text-[24px] sm:text-[26px] font-bold text-[#FDFBF7]"
+                  style={{ fontFamily: "'Playfair Display', serif" }}
+                >
+                  Maria Zélia
+                </h4>
+                <span
+                  className="text-[17.5px] sm:text-[19px] font-bold text-[#D4AF37] tracking-wide block mt-1"
+                  style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: 'italic' }}
+                >
+                  Eventos & Representações
+                </span>
+              </div>
             </div>
             <p className="text-[15px] sm:text-[16px] leading-[1.8] text-[#FDFBF7] font-normal m-0 max-w-[480px]">
               Idealizado pela Maria Zélia Eventos e Representações, com curadoria dedicada a conectar pessoas, negócios e propósito em experiências femininas de alto nível.
@@ -50,13 +64,13 @@ export default function OrganizerSection() {
               </div>
               <div>
                 <h4
-                  className="m-0 mb-1 text-[23px] font-bold text-[#FDFBF7]"
+                  className="m-0 mb-1 text-[24px] sm:text-[26px] font-bold text-[#FDFBF7]"
                   style={{ fontFamily: "'Playfair Display', serif" }}
                 >
                   Mariana Rocha
                 </h4>
                 <span
-                  className="text-[14.5px] font-semibold text-[#D4AF37] tracking-wide"
+                  className="text-[17.5px] sm:text-[19px] font-bold text-[#D4AF37] tracking-wide block mt-1"
                   style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: 'italic' }}
                 >
                   Idealizadora do Dia das Mulheres Poderosas

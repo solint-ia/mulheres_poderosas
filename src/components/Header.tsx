@@ -39,10 +39,11 @@ export default function Header() {
   }, [mobileMenuOpen]);
 
   const navLinks = [
-    { label: 'Palestrantes', href: '#palestrantes' },
-    { label: 'Programação', href: '#programacao' },
-    { label: 'Ingressos', href: '#ingressos' },
-    { label: 'FAQ', href: '#faq' },
+    { label: 'Palestrantes', href: '/#palestrantes' },
+    { label: 'Programação', href: '/#programacao' },
+    { label: 'Ingressos', href: '/#ingressos' },
+    { label: 'Seja Patrocinador', href: '/patrocinadores' },
+    { label: 'FAQ', href: '/#faq' },
   ];
 
   const handleLinkClick = () => {
@@ -62,7 +63,7 @@ export default function Header() {
     >
       <div className="max-w-[1240px] mx-auto flex items-center justify-between gap-4">
         {/* Logo Area */}
-        <a href="#" className="flex items-center gap-3.5 group focus:outline-none focus:ring-2 focus:ring-[#8B1E3F] rounded-md p-1 flex-none">
+        <a href="/" className="flex items-center gap-3.5 group focus:outline-none focus:ring-2 focus:ring-[#8B1E3F] rounded-md p-1 flex-none">
           <img
             src="/assets/logo-icon.png"
             alt="Dia das Mulheres Poderosas Logo"

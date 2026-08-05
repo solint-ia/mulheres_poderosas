@@ -225,21 +225,7 @@ export default async function SpeakerDetailPage({ params }: PageProps) {
               </div>
             )}
 
-            {/* Quote Card */}
-            {speaker.quote && (
-              <div className="p-6 sm:p-7 rounded-2xl bg-[#6B1730] text-[#FDFBF7] border border-[#D4AF37]/40 shadow-lg flex flex-col gap-3 relative overflow-hidden">
-                <span className="text-[40px] leading-none text-[#D4AF37] font-serif select-none">“</span>
-                <p
-                  className="text-[18px] sm:text-[20px] leading-[1.5] italic font-medium m-0 relative z-10"
-                  style={{ fontFamily: "'Cormorant Garamond', serif" }}
-                >
-                  {speaker.quote}
-                </p>
-                <span className="text-[13px] font-bold text-[#D4AF37] tracking-wider uppercase mt-1">
-                  — {speaker.name}
-                </span>
-              </div>
-            )}
+
 
             {/* High-Conversion Call to Action */}
             <div className="p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-[#123024] to-[#1B4332] text-[#FDFBF7] border border-[#D4AF37]/40 shadow-xl flex flex-col sm:flex-row items-center justify-between gap-6">

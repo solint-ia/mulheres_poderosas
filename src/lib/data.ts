@@ -67,6 +67,7 @@ export const speakerGroups: SpeakerGroup[] = [
           'Sua trajetória é pautada pela constante reinvenção profissional, garra empreendedora e uma capacidade única de se conectar genuinamente com o público feminino de todas as gerações.',
         ],
         quote: 'Coragem não é a ausência de medo, mas a certeza de que você é maior do que qualquer desafio.',
+        image: '/palestrantes/Mara Maravilha.jpeg',
         socials: { instagram: 'https://instagram.com/maramaravilhaoficial' },
       },
     ],
@@ -77,7 +78,7 @@ export const speakerGroups: SpeakerGroup[] = [
       {
         id: 'sp-raquel',
         name: 'Dra. Raquel Dosea',
-        role: 'Médica Especialista em Estética & Saúde Integrativa',
+        role: 'Clínica & Esteta',
         category: 'Saúde, Estética e Longevidade',
         time: '09:00 às 09:20 · Bloco Manhã',
         talk: 'A Beleza Rara da Mulher Empoderada',
@@ -92,7 +93,8 @@ export const speakerGroups: SpeakerGroup[] = [
           'Dra. Raquel Dosea é médica referência em procedimentos estéticos de alta precisão e longevidade feminina em Sergipe, combinando tecnologias de ponta com um olhar personalizado para realçar a beleza natural.',
         ],
         quote: 'Sua imagem deve refletir a força e a elegância da história que você construiu.',
-        socials: { instagram: 'https://instagram.com' },
+        image: '/palestrantes/Raquel Dosea.jpg',
+        socials: { instagram: 'https://instagram.com/dra_raqueldosea' },
       },
       {
         id: 'sp-carolinev',
@@ -136,8 +138,8 @@ export const speakerGroups: SpeakerGroup[] = [
       },
       {
         id: 'sp-christiane',
-        name: 'Dra. Christiane Espíndola',
-        role: 'Dermatologista & Especialista em Tecnologias Estéticas',
+        name: 'Christiane Espínola Bandeira de Mello',
+        role: 'Cirurgiã Dentista / Esteticista e Cosmetóloga',
         category: 'Saúde, Estética e Longevidade',
         time: '14:20 às 15:00 · Bloco Tarde',
         talk: 'A nova era da Estética: tecnologia, bioestimuladores e longevidade com naturalidade',
@@ -149,10 +151,11 @@ export const speakerGroups: SpeakerGroup[] = [
           'Estratégias de prevenção do envelhecimento precoce causado pelo estresse executivo.',
         ],
         bio: [
-          'Dra. Christiane Espíndola é médica dermatologista com vasta experiência em tecnologias avançadas para estímulo de colágeno, textura da pele e longevidade saudável.',
+          'Christiane Espínola Bandeira de Mello é cirurgiã dentista, esteticista e cosmetóloga com vasta experiência em tecnologias avançadas para estímulo de colágeno, textura da pele e longevidade saudável.',
         ],
         quote: 'A verdadeira estética não transforma quem você é; ela ilumina sua melhor versão.',
-        socials: { instagram: 'https://instagram.com' },
+        image: '/palestrantes/Christiane Espínola Bandeira de Mello.jfif',
+        socials: { instagram: 'https://instagram.com/drachristianeespinola' },
       },
       {
         id: 'sp-aline',
@@ -349,10 +352,10 @@ export const speakerGroups: SpeakerGroup[] = [
       {
         id: 'sp-gabrielan',
         name: 'Dra. Gabriela Nabuco',
-        role: 'Médica Psiquiatra & Especialista em Saúde Mental',
+        role: 'Médica Psiquiatra',
         category: 'Mente, Genética e Equilíbrio',
         time: '16:00 às 16:40 · Bloco Tarde',
-        talk: 'Saúde da mulher empreendedora: como crescer sem adoecer',
+        talk: 'Pilares da saúde mental da mulher empreendedora',
         talkDescription:
           'Ferramentas de medicina preventiva e psiquiatria para identificar sinais de burnout, ansiedade e exaustão antes que afetem sua vida física e seus negócios.',
         takeaways: [
@@ -364,7 +367,8 @@ export const speakerGroups: SpeakerGroup[] = [
           'Dra. Gabriela Nabuco é médica especialista em saúde mental feminina e orienta empreendedoras a manterem a saúde mental em dia durante o crescimento dos negócios.',
         ],
         quote: 'Sucesso sem saúde mental não é conquista, é insustentabilidade.',
-        socials: { instagram: 'https://instagram.com' },
+        image: '/palestrantes/Gabriela Nabuco Melo Franco.jfif',
+        socials: { instagram: 'https://instagram.com/dra.gabrielanabuco' },
       },
       {
         id: 'sp-carolineg',
@@ -448,7 +452,7 @@ export const shift1Rows: ScheduleRow[] = [
   {
     time: '14:20 - 15:00',
     items: [
-      { speaker: 'Dra. Christiane Espíndola', talk: 'A nova era da Estética: tecnologia, bioestimuladores e longevidade com naturalidade' },
+      { speaker: 'Christiane Espínola', talk: 'A nova era da Estética: tecnologia, bioestimuladores e longevidade com naturalidade' },
     ],
   },
   {
@@ -460,7 +464,7 @@ export const shift1Rows: ScheduleRow[] = [
   {
     time: '16:00 - 16:40',
     items: [
-      { speaker: 'Dra. Gabriela Nabuco', talk: 'Saúde da mulher empreendedora: como crescer sem adoecer' },
+      { speaker: 'Dra. Gabriela Nabuco', talk: 'Pilares da saúde mental da mulher empreendedora' },
       { speaker: 'Psicóloga Caroline Guimarães', talk: 'Saúde da mulher empreendedora: como crescer sem adoecer' },
     ],
   },
@@ -503,7 +507,7 @@ export const faqItems: FaqItem[] = [
 
 export const legacyPrograms = [
   { title: 'Harmonização Facial', speaker: 'Dra. Carol Vicente ou Dra. Raquel' },
-  { title: 'Laser CO2 na Face', speaker: 'Dra. Cristiane Espíndola' },
+  { title: 'Laser CO2 na Face', speaker: 'Christiane Espínola' },
   { title: 'Laser CO2 Íntimo', speaker: 'Dra. Caroline Smith' },
   { title: 'Gestão Empresarial', speaker: 'Italo Marcel' },
 ];
@@ -557,3 +561,209 @@ export const pillars = [
   { label: 'Tecnologia', desc: 'Inovação e futuro a favor do seu negócio.', offset: false },
   { label: 'Liderança', desc: 'Posicionamento, coragem e protagonismo.', offset: true },
 ];
+
+// ─── Patrocinadores & Cotas de Patrocínio ────────────────────────────────────
+
+export interface SponsorshipBenefitCategory {
+  title: string;
+  items: string[];
+}
+
+export interface SponsorshipTier {
+  id: string;
+  name: string;
+  price: string;
+  maxSponsors?: string;
+  popular?: boolean;
+  color: string;
+  borderColor: string;
+  badge?: string;
+  highlights: string[];
+  categories: SponsorshipBenefitCategory[];
+}
+
+export interface SponsorshipPillar {
+  title: string;
+  desc: string;
+  iconName: string;
+}
+
+export const sponsorshipPillars: SponsorshipPillar[] = [
+  {
+    title: 'Público Qualificado',
+    desc: 'Conexão direta com empreendedoras, executivas e tomadoras de decisão de Sergipe e região.',
+    iconName: 'users',
+  },
+  {
+    title: 'Grande Visibilidade',
+    desc: 'Exposição de marca em painéis, backdrop oficial, telão HD e materiais impressos de alto impacto.',
+    iconName: 'eye',
+  },
+  {
+    title: 'Relacionamento & Networking',
+    desc: 'Espaço exclusivo para estandes, mesas expositoras e interação nos momentos de coffee break.',
+    iconName: 'handshake',
+  },
+  {
+    title: 'Divulgação & Conteúdo',
+    desc: 'Vídeo institucional no palco, menção do mestre de cerimônias e ativação com Mara Maravilha.',
+    iconName: 'megaphone',
+  },
+  {
+    title: 'Propósito Forte',
+    desc: 'Associe sua marca à transformação, inovação e protagonismo no empreendedorismo feminino.',
+    iconName: 'award',
+  },
+];
+
+export const sponsorshipTiers: SponsorshipTier[] = [
+  {
+    id: 'diamante',
+    name: 'Cota Diamante',
+    price: 'R$ 10.000',
+    maxSponsors: 'Máximo 4 patrocinadores',
+    popular: true,
+    badge: 'Mais Completa & Exclusiva',
+    color: '#3D1220',
+    borderColor: '#D4AF37',
+    highlights: [
+      'Stand Premium para exposição na feira (melhor localização)',
+      '01 Vídeo Institucional (30s) exibido no telão principal',
+      'Divulgação exclusiva da marca por Mara Maravilha',
+      'Menção nominal pelo mestre de cerimônias no palco',
+      'Logo em destaque no backdrop, telão, site e impressos',
+      '08 Ingressos Tradicionais + 02 Ingressos VIP (com Jantar)',
+    ],
+    categories: [
+      {
+        title: 'Divulgação',
+        items: [
+          'Logo em destaque em todo material de divulgação',
+          'Logo no backdrop oficial do evento',
+          'Logo no telão antes, durante os intervalos e encerramento',
+          'Logo em destaque no site oficial',
+          'Marca em todos os materiais impressos (crachá, bloco de notas)',
+        ],
+      },
+      {
+        title: 'Experiência',
+        items: [
+          'Stand Premium para exposição na feira',
+          'Melhor localização do evento',
+          'Direito de distribuir brindes e materiais aos participantes',
+          'Inclusão de item promocional no kit oficial',
+        ],
+      },
+      {
+        title: 'Marketing',
+        items: [
+          '01 vídeo institucional (até 30 segundos) exibido no telão',
+          'Menção nominal pelo mestre de cerimônias',
+          'Divulgação da marca pela Mara Maravilha durante ação promocional',
+          'Participação nos releases enviados à imprensa',
+        ],
+      },
+      {
+        title: 'Relacionamento',
+        items: [
+          '08 Ingressos Tradicionais (Essential)',
+          '02 Ingressos VIP (Signature com Jantar incluso)',
+          'Networking exclusivo com palestrantes e convidadas',
+        ],
+      },
+    ],
+  },
+  {
+    id: 'ouro',
+    name: 'Cota Ouro',
+    price: 'R$ 5.000',
+    maxSponsors: 'Máximo 8 patrocinadores',
+    popular: false,
+    color: '#F7F1E8',
+    borderColor: '#D4AF37',
+    highlights: [
+      'Mesa Expositora na área do evento + distribuição de brindes',
+      'Menção nominal pelo mestre de cerimônias',
+      'Logo em destaque no backdrop oficial (tamanho intermediário)',
+      'Exposição da marca no telão durante os intervalos',
+      'Marca em destaque no site oficial do evento',
+      '05 Ingressos Tradicionais (Essential)',
+    ],
+    categories: [
+      {
+        title: 'Divulgação',
+        items: [
+          'Logo em destaque nos materiais de divulgação',
+          'Logo no backdrop oficial (tamanho intermediário)',
+          'Logo no telão durante os intervalos',
+          'Marca no site oficial',
+        ],
+      },
+      {
+        title: 'Experiência',
+        items: [
+          'Mesa Expositora na área do evento',
+          'Distribuição de panfletos e brindes',
+        ],
+      },
+      {
+        title: 'Marketing',
+        items: ['Menção nominal pelo mestre de cerimônias'],
+      },
+      {
+        title: 'Relacionamento',
+        items: ['05 Ingressos Tradicionais (Essential)'],
+      },
+    ],
+  },
+  {
+    id: 'prata',
+    name: 'Cota Prata',
+    price: 'R$ 2.000',
+    popular: false,
+    color: '#F7F1E8',
+    borderColor: '#C0C0C0',
+    highlights: [
+      'Logo em todo material digital de divulgação',
+      'Logo no painel oficial de patrocinadores',
+      'Exposição da marca no telão durante os intervalos',
+      '02 Ingressos Tradicionais (Essential)',
+    ],
+    categories: [
+      {
+        title: 'Divulgação',
+        items: [
+          'Logo em todo material digital',
+          'Logo no painel de patrocinadores',
+          'Logo no telão durante os intervalos',
+        ],
+      },
+      {
+        title: 'Relacionamento',
+        items: ['02 Ingressos Tradicionais (Essential)'],
+      },
+    ],
+  },
+];
+
+export const sponsorshipContacts = {
+  phone: '(79) 99831-7137',
+  whatsappUrl: 'https://wa.me/5579998317137',
+  email: 'contato@mariazeliaeventos.com.br',
+  emailSecundario: 'mariazelia.eventos@gmail.com',
+  instagram: '@mariazelia.eventos',
+  instagramUrl: 'https://instagram.com/mariazelia.eventos',
+};
+
+export const companyInfo = {
+  razaoSocial: 'MARIA ZELIA EVENTOS & REPRESENTACOES LTDA',
+  cnpj: '68.174.950/0001-76',
+  administradora: 'Mariana Silva Rocha',
+  cidade: 'São Cristóvão / SE',
+  banco: '0260 - Nu Pagamentos S.A.',
+  agencia: '0001',
+  conta: '116065832-4',
+  chavePix: '68.174.950/0001-76',
+};
+
+
