@@ -331,23 +331,24 @@ export const speakerGroups: SpeakerGroup[] = [
       },
       {
         id: 'sp-andre',
-        name: 'Dr. Andre Yochi',
-        role: 'Médico Especialista em Medicina Genômica & Saúde de Precisão',
+        name: 'Dr. André Yoichi Kuwano',
+        role: 'Urologista com atuação em cirurgia minimamente invasiva, cirurgia robótica e uro-oncologia',
         category: 'Mente, Genética e Equilíbrio',
         time: '11:40 às 12:10 · Bloco Manhã',
-        talk: 'Seu DNA, seu maior patrimônio: como a genética pode transformar sua saúde e seu futuro',
+        talk: 'Seu DNA, seu maior patrimônio: Como a genética pode transformar sua saúde e seu futuro',
         talkDescription:
-          'Descubra como os testes genéticos e a medicina personalizada podem direcionar sua alimentação, suplementação e estilo de vida para prevenir doenças e otimizar seu futuro.',
+          'Descubra como os testes genéticos, a cirurgia de precisão e os avanços da medicina moderna podem transformar sua saúde e garantir um futuro de longevidade e bem-estar.',
         takeaways: [
-          'Como a genômica pode personalizar seu plano de saúde e produtividade.',
-          'Nutrigenética: os alimentos e nutrientes certos para a sua assinatura biológica.',
-          'Prevenção de doenças crônicas e longevidade ativa baseada em dados reais do seu DNA.',
+          'Como a genética e os testes genômicos orientam prevenções personalizadas.',
+          'Cirurgia minimamente invasiva e robótica aplicadas à saúde preventiva.',
+          'Estratégias de saúde para longevidade e alta performance.',
         ],
         bio: [
-          'Dr. Andre Yochi é médico referência em medicina genômica e saúde de precisão, aplicando descobertas da ciência genética para alta performance e longevidade.',
+          'Dr. André Yoichi Kuwano é Urologista com atuação em cirurgia minimamente invasiva, cirurgia robótica e uro-oncologia, unindo tecnologia de ponta e medicina de precisão.',
         ],
-        quote: 'Seus genes indicam tendências, mas suas escolhas diárias escrevem seu destino.',
-        socials: { instagram: 'https://instagram.com', linkedin: 'https://linkedin.com' },
+        quote: 'Seu DNA é seu maior patrimônio: como a genética pode transformar sua saúde e seu futuro.',
+        image: '/palestrantes/André Yoichi Kuwano.jpg',
+        socials: { instagram: 'https://instagram.com/dr.andreyoichi' },
       },
       {
         id: 'sp-gabrielan',
@@ -437,7 +438,7 @@ export const shift0Rows: ScheduleRow[] = [
   {
     time: '11:40 - 12:10',
     items: [
-      { speaker: 'Dr. Andre Yochi', talk: 'Seu DNA, seu maior patrimônio: como a genética pode transformar sua saúde e seu futuro' },
+      { speaker: 'Dr. André Yoichi Kuwano', talk: 'Seu DNA, seu maior patrimônio: Como a genética pode transformar sua saúde e seu futuro' },
     ],
   },
 ];
