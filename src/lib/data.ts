@@ -202,7 +202,7 @@ export const speakerGroups: SpeakerGroup[] = [
           'Leonardo Lima é especialista em crescimento acelerado de vendas com inteligência artificial, tendo ajudado centenas de empresas e profissionais autônomos a estruturarem processos comerciais modernos.',
         ],
         quote: 'A Inteligência Artificial não substitui pessoas; ela multiplica os resultados de quem sabe usá-la.',
-        image: '/palestrantes/Leonardo Lima.jpg',
+        image: '/palestrantes/Leonardo Lima.png',
         socials: { instagram: 'https://instagram.com', linkedin: 'https://linkedin.com' },
       },
       {
