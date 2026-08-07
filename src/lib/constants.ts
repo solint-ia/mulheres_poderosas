@@ -1,5 +1,5 @@
-// Troque [LINK_SYMPLA] pelo link real do Sympla quando disponível
-export const SYMPLA_URL = '[LINK_SYMPLA]';
+// Link oficial do evento no Sympla
+export const SYMPLA_URL = 'https://www.sympla.com.br/evento/dia-das-mulheres-poderosas/3531988';
 
 export const EVENT_NAME = 'Dia das Mulheres Poderosas';
 export const EVENT_SUBTITLE = 'Empreendedorismo Feminino 360°: Negócios, Saúde, Tecnologia e Liderança';
