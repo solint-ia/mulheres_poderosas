@@ -17,15 +17,6 @@ function CheckItem({ children, light = false }: { children: React.ReactNode; lig
   );
 }
 
-function TicketNotch({ side }: { side: 'left' | 'right' }) {
-  return (
-    <div
-      className={`absolute top-1/2 -translate-y-1/2 w-5 h-7 bg-[#F7F1E8] ${
-        side === 'left' ? '-left-2.5 rounded-r-full border-r border-y' : '-right-2.5 rounded-l-full border-l border-y'
-      } border-[#D4AF37]/30 z-20 pointer-events-none hidden sm:block`}
-    />
-  );
-}
 
 export default function TicketsSection() {
   return (
@@ -87,8 +78,7 @@ export default function TicketsSection() {
             borderTop: '5px solid #8B1E3F',
           }}
         >
-          <TicketNotch side="left" />
-          <TicketNotch side="right" />
+
 
           {/* Cabeçalho do Ticket */}
           <div>
@@ -156,8 +146,7 @@ export default function TicketsSection() {
           transition={{ duration: 0.55, delay: 0.12 }}
           className="relative flex-1 min-w-[300px] max-w-[370px] flex flex-col justify-between p-8 sm:p-9 rounded-xl bg-[#6B1730] text-[#FDFBF7] border-2 border-[#D4AF37] shadow-2xl hover:shadow-2xl transition-all sm:-translate-y-2 overflow-hidden ring-4 ring-[#D4AF37]/30"
         >
-          <TicketNotch side="left" />
-          <TicketNotch side="right" />
+
 
           {/* Cabeçalho do Ticket */}
           <div>
@@ -221,8 +210,7 @@ export default function TicketsSection() {
           transition={{ duration: 0.55, delay: 0.24 }}
           className="relative flex-1 min-w-[300px] max-w-[360px] flex flex-col justify-between p-8 rounded-xl bg-[#3D1220] text-[#FDFBF7] border-2 border-[#D4AF37]/80 shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1 overflow-hidden"
         >
-          <TicketNotch side="left" />
-          <TicketNotch side="right" />
+
 
           {/* Cabeçalho do Ticket */}
           <div>

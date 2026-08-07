@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { faqItems } from '@/lib/data';
 
 export default function FAQSection() {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
     <section
