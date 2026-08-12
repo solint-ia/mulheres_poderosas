@@ -112,7 +112,7 @@ function MobileGroupCarousel({ items, groupTitle }: { items: Speaker[]; groupTit
               <div className="p-5 flex flex-col justify-between flex-1 text-center">
                 <div>
                   <div
-                    className="mb-1.5 group-hover:text-[#8B1E3F] transition-colors"
+                    className="mb-1 group-hover:text-[#8B1E3F] transition-colors"
                     style={{
                       fontFamily: "'Playfair Display', serif",
                       fontWeight: 700,
@@ -122,6 +122,17 @@ function MobileGroupCarousel({ items, groupTitle }: { items: Speaker[]; groupTit
                   >
                     {sp.name}
                   </div>
+                  {sp.role && (
+                    <div
+                      className="text-[12px] font-semibold mb-2 opacity-85 leading-snug"
+                      style={{
+                        color: isMara ? '#E8D5CE' : '#8B1E3F',
+                        fontFamily: "'Plus Jakarta Sans', sans-serif",
+                      }}
+                    >
+                      {sp.role}
+                    </div>
+                  )}
                   <div
                     style={{
                       fontFamily: "'Cormorant Garamond', serif",
@@ -312,7 +323,7 @@ export default function SpeakersSection() {
                         <div className="p-5 sm:p-6 flex flex-col items-center justify-between flex-1 w-full">
                           <div>
                             <div
-                              className="mb-1.5 group-hover:text-[#8B1E3F] transition-colors"
+                              className="mb-1 group-hover:text-[#8B1E3F] transition-colors"
                               style={{
                                 fontFamily: "'Playfair Display', serif",
                                 fontWeight: 700,
@@ -322,6 +333,17 @@ export default function SpeakersSection() {
                             >
                               {sp.name}
                             </div>
+                            {sp.role && (
+                              <div
+                                className="text-[12.5px] font-semibold mb-2.5 opacity-85 leading-snug"
+                                style={{
+                                  color: isMara ? '#E8D5CE' : '#8B1E3F',
+                                  fontFamily: "'Plus Jakarta Sans', sans-serif",
+                                }}
+                              >
+                                {sp.role}
+                              </div>
+                            )}
                             <div
                               style={{
                                 fontFamily: "'Cormorant Garamond', serif",

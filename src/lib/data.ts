@@ -228,8 +228,8 @@ export const speakerGroups: SpeakerGroup[] = [
       },
       {
         id: 'sp-marcilio',
-        name: 'Marcilio',
-        role: 'Especialista em Direito Tributário & Soluções Corporativas',
+        name: 'Marcílio',
+        role: 'Auditor Fiscal · Exatas Contabilidade',
         category: 'Negócios, Tecnologia e Gestão',
         time: '10:00 às 10:20 · Bloco Manhã',
         talk: 'Benefícios voltados a produtos e serviços relacionados à saúde da mulher e Reforma Tributária',
@@ -241,15 +241,16 @@ export const speakerGroups: SpeakerGroup[] = [
           'Incentivos fiscais aplicáveis à promoção de saúde e bem-estar corporativo.',
         ],
         bio: [
-          'Marcilio é especialista em inteligência tributária e soluções corporativas, orientando empresários a maximizarem seus resultados operacionais com segurança jurídica.',
+          'Marcílio é auditor fiscal e especialista da Exatas Contabilidade, orientando empresários a maximizarem seus resultados operacionais com inteligência fiscal, conformidade tributária e segurança jurídica.',
         ],
-        quote: 'Planejamento tributário não é custo, é investimento direto no lucro da sua empresa.',
+        quote: 'Planejamento tributário e conformidade fiscal não são custos, são investimentos diretos no lucro da sua empresa.',
+        image: '/palestrantes/marcilio.png',
         socials: { linkedin: 'https://linkedin.com' },
       },
       {
         id: 'sp-antonio',
-        name: 'Antonio',
-        role: 'Especialista em Direito Tributário & Soluções Corporativas',
+        name: 'Antônio Soares',
+        role: 'Contador · Exatas Contabilidade',
         category: 'Negócios, Tecnologia e Gestão',
         time: '10:00 às 10:20 · Bloco Manhã',
         talk: 'Benefícios voltados a produtos e serviços relacionados à saúde da mulher e Reforma Tributária',
@@ -261,9 +262,10 @@ export const speakerGroups: SpeakerGroup[] = [
           'Incentivos fiscais aplicáveis à promoção de saúde e bem-estar corporativo.',
         ],
         bio: [
-          'Antonio é especialista em inteligência tributária e soluções corporativas, orientando empresários a maximizarem seus resultados operacionais com segurança jurídica.',
+          'Antônio Soares é contador e sócio da Exatas Contabilidade, especialista em inteligência tributária, contabilidade estratégica e estruturação financeira para empresas em expansão.',
         ],
-        quote: 'Planejamento tributário não é custo, é investimento direto no lucro da sua empresa.',
+        quote: 'Planejamento contábil e tributário é a base sólida para o crescimento seguro e lucrativo do seu negócio.',
+        image: '/palestrantes/antonio soares.png',
         socials: { linkedin: 'https://linkedin.com' },
       },
       {
@@ -426,8 +428,8 @@ export const shift0Rows: ScheduleRow[] = [
   {
     time: '10:00 - 10:40',
     items: [
-      { speaker: 'Marcilio', talk: 'Benefícios voltados a produtos e serviços relacionados à saúde da mulher e Reforma Tributária' },
-      { speaker: 'Antonio', talk: 'Benefícios voltados a produtos e serviços relacionados à saúde da mulher e Reforma Tributária' },
+      { speaker: 'Marcílio', talk: 'Benefícios voltados a produtos e serviços relacionados à saúde da mulher e Reforma Tributária' },
+      { speaker: 'Antônio Soares', talk: 'Benefícios voltados a produtos e serviços relacionados à saúde da mulher e Reforma Tributária' },
       { speaker: 'Dra. Ramonny', talk: 'Importância da NRJ para empresas' },
     ],
   },
