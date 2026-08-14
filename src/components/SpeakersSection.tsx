@@ -1,13 +1,81 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
-import Link from 'next/link';
+// import Link from 'next/link'; // Comentado temporariamente até envio dos dados biográficos completos
 import { motion } from 'framer-motion';
 import { speakerGroups, Speaker } from '@/lib/data';
 
 function getInitials(name: string): string {
   const parts = name.replace(/^(Dr\.|Dra\.|Dr)\s/i, '').split(' ');
   return parts.slice(0, 2).map((p) => p[0]).join('').toUpperCase();
+}
+
+function getInstagramHandle(url?: string): string {
+  if (!url) return '';
+  const cleanUrl = url.trim().replace(/\/+$/, '');
+  const match = cleanUrl.match(/instagram\.com\/([a-zA-Z0-9._]+)/i);
+  if (match && match[1] && match[1].toLowerCase() !== 'instagram') {
+    return `@${match[1]}`;
+  }
+  if (cleanUrl.startsWith('@')) {
+    return cleanUrl;
+  }
+  return 'Instagram';
+}
+
+function SpeakerSocialAction({ speaker, isSpecial = false }: { speaker: Speaker; isSpecial?: boolean }) {
+  if (speaker.socials?.instagram) {
+    const handle = getInstagramHandle(speaker.socials.instagram);
+    return (
+      <a
+        href={speaker.socials.instagram}
+        target="_blank"
+        rel="noopener noreferrer"
+        title={`Ver perfil de ${speaker.name} no Instagram`}
+        className={`mt-4 pt-3 border-t w-full flex items-center justify-center gap-2 text-[12.5px] font-bold tracking-wide transition-all duration-200 rounded-lg py-2 px-3 group/insta ${
+          isSpecial
+            ? 'border-[#D4AF37]/30 text-[#D4AF37] hover:bg-[#D4AF37] hover:text-[#3D1220] shadow-sm'
+            : 'border-[rgba(139,30,63,0.12)] text-[#8B1E3F] bg-[#8B1E3F]/5 hover:bg-[#8B1E3F] hover:text-[#FDFBF7] shadow-sm'
+        }`}
+      >
+        <svg className="w-4 h-4 shrink-0 fill-current transition-transform group-hover/insta:scale-110" viewBox="0 0 24 24">
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+        </svg>
+        <span className="truncate">{handle || 'Instagram'}</span>
+      </a>
+    );
+  }
+
+  if (speaker.socials?.linkedin) {
+    return (
+      <a
+        href={speaker.socials.linkedin}
+        target="_blank"
+        rel="noopener noreferrer"
+        title={`Ver perfil de ${speaker.name} no LinkedIn`}
+        className={`mt-4 pt-3 border-t w-full flex items-center justify-center gap-2 text-[12.5px] font-bold tracking-wide transition-all duration-200 rounded-lg py-2 px-3 group/link ${
+          isSpecial
+            ? 'border-[#D4AF37]/30 text-[#D4AF37] hover:bg-[#D4AF37] hover:text-[#3D1220] shadow-sm'
+            : 'border-[rgba(139,30,63,0.12)] text-[#8B1E3F] bg-[#8B1E3F]/5 hover:bg-[#8B1E3F] hover:text-[#FDFBF7] shadow-sm'
+        }`}
+      >
+        <svg className="w-4 h-4 shrink-0 fill-current transition-transform group-hover/link:scale-110" viewBox="0 0 24 24">
+          <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+        </svg>
+        <span>LinkedIn</span>
+      </a>
+    );
+  }
+
+  return (
+    <div
+      className={`mt-4 pt-3 border-t w-full flex items-center justify-center gap-1.5 text-[12px] font-semibold opacity-70 py-2 ${
+        isSpecial ? 'border-[#D4AF37]/30 text-[#FDFBF7]' : 'border-[rgba(139,30,63,0.12)] text-[#5C4A50]'
+      }`}
+    >
+      <span>Palestrante Confirmado(a)</span>
+    </div>
+  );
 }
 
 function SpeakerCardMedia({ speaker, isSpecial = false }: { speaker: Speaker; isSpecial?: boolean }) {
@@ -99,6 +167,7 @@ function MobileGroupCarousel({ items, groupTitle }: { items: Speaker[]; groupTit
           const isMara = sp.name.toLowerCase().includes('mara maravilha');
 
           return (
+            /* Comentado temporariamente o Link para página individual até envio dos dados biográficos completos:
             <Link
               key={sp.id}
               href={`/palestrantes/${sp.id}`}
@@ -108,11 +177,20 @@ function MobileGroupCarousel({ items, groupTitle }: { items: Speaker[]; groupTit
                   : 'bg-[#FDFBF7] text-[#3D1220] border-[rgba(212,175,55,0.35)] shadow-md hover:border-[#D4AF37]'
               }`}
             >
+            */
+            <div
+              key={sp.id}
+              className={`group flex-none w-[82vw] max-w-[320px] snap-center flex flex-col rounded-xl border transition-all overflow-hidden ${
+                isMara
+                  ? 'bg-[#3D1220] text-[#FDFBF7] border-[#D4AF37] shadow-xl ring-2 ring-[#D4AF37]/40'
+                  : 'bg-[#FDFBF7] text-[#3D1220] border-[rgba(212,175,55,0.35)] shadow-md'
+              }`}
+            >
               <SpeakerCardMedia speaker={sp} isSpecial={isMara} />
               <div className="p-5 flex flex-col justify-between flex-1 text-center">
                 <div>
                   <div
-                    className="mb-1 group-hover:text-[#8B1E3F] transition-colors"
+                    className="mb-1 transition-colors"
                     style={{
                       fontFamily: "'Playfair Display', serif",
                       fontWeight: 700,
@@ -147,6 +225,8 @@ function MobileGroupCarousel({ items, groupTitle }: { items: Speaker[]; groupTit
                   </div>
                 </div>
 
+                {/* Botão de ver página individual comentado temporariamente */}
+                {/* 
                 <div
                   className={`text-[11.5px] font-bold uppercase tracking-wider mt-3 pt-3 border-t flex items-center justify-center gap-1 group-hover:translate-x-0.5 transition-all ${
                     isMara
@@ -157,8 +237,13 @@ function MobileGroupCarousel({ items, groupTitle }: { items: Speaker[]; groupTit
                   <span>Ver detalhes da palestra</span>
                   <span>→</span>
                 </div>
+                */}
+
+                {/* Botão de Instagram / Rede Social */}
+                <SpeakerSocialAction speaker={sp} isSpecial={isMara} />
               </div>
-            </Link>
+            </div>
+            /* </Link> */
           );
         })}
       </div>
@@ -261,7 +346,7 @@ export default function SpeakersSection() {
           Quem vai estar com você
         </h2>
         <p className="text-[14px] text-[#5C4A50] mt-2 mb-0">
-          Clique no card de qualquer palestrante para ver o tema completo e o perfil detalhado.
+          Conheça os grandes especialistas e líderes que estarão presentes neste dia transformador.
         </p>
       </motion.div>
 
@@ -310,6 +395,7 @@ export default function SpeakersSection() {
                     const isMara = sp.name.toLowerCase().includes('mara maravilha');
 
                     return (
+                      /* Comentado temporariamente o Link para página individual até envio dos dados biográficos completos:
                       <Link
                         key={sp.id}
                         href={`/palestrantes/${sp.id}`}
@@ -319,11 +405,20 @@ export default function SpeakersSection() {
                             : 'bg-[#FDFBF7] text-[#3D1220] border-[rgba(212,175,55,0.35)] shadow-sm hover:shadow-md hover:-translate-y-1 hover:border-[#D4AF37]'
                         }`}
                       >
+                      */
+                      <div
+                        key={sp.id}
+                        className={`group flex flex-col items-center text-center rounded-xl border transition-all overflow-hidden ${
+                          isMara
+                            ? 'w-full max-w-[380px] bg-[#3D1220] text-[#FDFBF7] border-[#D4AF37] shadow-xl hover:shadow-2xl hover:scale-[1.02] ring-2 ring-[#D4AF37]/40'
+                            : 'bg-[#FDFBF7] text-[#3D1220] border-[rgba(212,175,55,0.35)] shadow-sm hover:shadow-md hover:-translate-y-1 hover:border-[#D4AF37]'
+                        }`}
+                      >
                         <SpeakerCardMedia speaker={sp} isSpecial={isMara} />
                         <div className="p-5 sm:p-6 flex flex-col items-center justify-between flex-1 w-full">
                           <div>
                             <div
-                              className="mb-1 group-hover:text-[#8B1E3F] transition-colors"
+                              className="mb-1 transition-colors"
                               style={{
                                 fontFamily: "'Playfair Display', serif",
                                 fontWeight: 700,
@@ -358,6 +453,8 @@ export default function SpeakersSection() {
                             </div>
                           </div>
 
+                          {/* Botão de ver página individual comentado temporariamente */}
+                          {/* 
                           <div
                             className={`text-[11.5px] font-bold uppercase tracking-wider mt-4 pt-3 border-t w-full flex items-center justify-center gap-1 group-hover:translate-x-0.5 transition-all ${
                               isMara
@@ -368,8 +465,13 @@ export default function SpeakersSection() {
                             <span>Ver detalhes da palestra</span>
                             <span>→</span>
                           </div>
+                          */}
+
+                          {/* Botão de Instagram / Rede Social */}
+                          <SpeakerSocialAction speaker={sp} isSpecial={isMara} />
                         </div>
-                      </Link>
+                      </div>
+                      /* </Link> */
                     );
                   })}
                 </div>

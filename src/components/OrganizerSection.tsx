@@ -55,11 +55,11 @@ export default function OrganizerSection() {
               <div className="text-[12px] font-extrabold tracking-[0.2em] uppercase text-[#D4AF37]">
                 Idealização & Visão
               </div>
-              <div className="p-4 px-6 bg-[#FDFBF7] rounded-xl shadow-lg border border-[rgba(212,175,55,0.4)] flex items-center justify-center min-h-[140px] w-[min(260px,80%)]">
+              <div className="w-[140px] h-[140px] rounded-full overflow-hidden shadow-xl border-2 border-[#D4AF37] ring-4 ring-[#D4AF37]/20 flex items-center justify-center bg-[#E8D5CE]">
                 <img
-                  src="/assets/logo-full.png"
-                  alt="Dia das Mulheres Poderosas Logo"
-                  className="w-full max-w-[210px] sm:max-w-[230px] h-auto object-contain"
+                  src="/palestrantes/Mariana Rocha.jpeg"
+                  alt="Mariana Rocha"
+                  className="w-full h-full object-cover object-top transition-transform duration-500 hover:scale-105"
                 />
               </div>
               <div>

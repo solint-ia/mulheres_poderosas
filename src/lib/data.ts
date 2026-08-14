@@ -135,7 +135,8 @@ export const speakerGroups: SpeakerGroup[] = [
           'Dra. Caroline Smith é médica reconhecida pela abordagem humanizada e científica na saúde feminina, sendo pioneira em tecnologias para tratamentos corporais e íntimos.',
         ],
         quote: 'Conhecer o próprio corpo é a forma mais profunda de empoderamento.',
-        socials: { instagram: 'https://instagram.com' },
+        image: '/palestrantes/Dra Caroline Smith.jpeg',
+        socials: { instagram: 'https://instagram.com/dracarolinesmith' },
       },
       {
         id: 'sp-christiane',
