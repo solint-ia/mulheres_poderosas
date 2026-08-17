@@ -317,23 +317,26 @@ export const speakerGroups: SpeakerGroup[] = [
       },
       {
         id: 'sp-gabrielab',
-        name: 'Gabriela Benevides',
-        role: 'Especialista em Desenvolvimento Humano & Gestão Emocional',
+        name: 'Gabriela Benevides Reis Oliveira',
+        role: 'Nutricionista Clínica & Hospitalar',
         category: 'Mente, Genética e Equilíbrio',
         time: '11:00 às 11:40 · Bloco Manhã',
         talk: 'A mulher por trás da empreendedora de sucesso',
         talkDescription:
-          'Uma conversa profunda sobre inteligência emocional, identidade e superação da síndrome da impostora para construir uma jornada profissional leve e vitoriosa.',
+          'Uma conversa profunda sobre saúde, nutrição e equilíbrio emocional para construir uma jornada profissional leve e sustentável.',
         takeaways: [
-          'Como desatar nós emocionais que travam o crescimento profissional.',
-          'Desenvolvimento de maturidade emocional no relacionamento com sócios e equipes.',
-          'Alinhando ambição profissional com paz de espírito e presença familiar.',
+          'Como a nutrição clínica e a saúde intestinal influenciam a energia e o foco executivo.',
+          'Construção de hábitos sustentáveis para mulheres de alta rotina e liderança.',
+          'Alinhando ambição profissional com equilíbrio físico, mental e bem-estar.',
         ],
         bio: [
-          'Gabriela Benevides atua no desenvolvimento de líderes e empreendedoras, unindo comportamento, psicologia e inteligência emocional.',
+          'Graduada em Nutrição pelo Centro Universitário Estácio de Sergipe (2020).',
+          'Pós-graduada em Nutrição Clínica, Hospitalar e Home Care pelo Instituto HIB (2022).',
+          'Pós-graduanda em Nutrição em Gastroenterologia e Hepatologia pelo IPGS.',
         ],
-        quote: 'Seu negócio nunca vai crescer mais rápido do que o seu desenvolvimento pessoal.',
-        socials: { instagram: 'https://instagram.com' },
+        quote: 'Nutrir o corpo e a mente é a base sólida para sustentar uma jornada de sucesso.',
+        image: '/palestrantes/Gabriela Benevides Reis Oliveira.jpeg',
+        socials: { instagram: 'https://instagram.com/gabrielabenevidesnutri' },
       },
       {
         id: 'sp-andre',
@@ -438,7 +441,7 @@ export const shift0Rows: ScheduleRow[] = [
     time: '11:00 - 11:40',
     items: [
       { speaker: 'Dr. Guilherme Britto', talk: 'A mulher por trás da empreendedora de sucesso' },
-      { speaker: 'Gabriela Benevides', talk: 'A mulher por trás da empreendedora de sucesso' },
+      { speaker: 'Gabriela Benevides Reis Oliveira', talk: 'A mulher por trás da empreendedora de sucesso' },
     ],
   },
   {
