@@ -216,13 +216,14 @@ function MobileGroupCarousel({ items, groupTitle }: { items: Speaker[]; groupTit
                     </div>
                   )}
                   <div
+                    className="mt-1.5"
                     style={{
                       fontFamily: "'Cormorant Garamond', serif",
                       fontStyle: 'italic',
-                      fontWeight: 600,
-                      fontSize: isMara ? 17 : 15.5,
-                      lineHeight: 1.4,
-                      color: isMara ? '#FDFBF7' : '#4A1B28',
+                      fontWeight: 700,
+                      fontSize: isMara ? 19 : 17.5,
+                      lineHeight: 1.35,
+                      color: isMara ? '#FDFBF7' : '#3D1220',
                     }}
                   >
                     {sp.talk}
@@ -444,13 +445,14 @@ export default function SpeakersSection() {
                               </div>
                             )}
                             <div
+                              className="mt-1.5"
                               style={{
                                 fontFamily: "'Cormorant Garamond', serif",
                                 fontStyle: 'italic',
-                                fontWeight: 600,
-                                fontSize: isMara ? 18 : 16.5,
-                                lineHeight: 1.4,
-                                color: isMara ? '#FDFBF7' : '#4A1B28',
+                                fontWeight: 700,
+                                fontSize: isMara ? 20 : 18,
+                                lineHeight: 1.35,
+                                color: isMara ? '#FDFBF7' : '#3D1220',
                               }}
                             >
                               {sp.talk}
