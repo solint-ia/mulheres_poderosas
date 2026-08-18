@@ -206,7 +206,7 @@ function MobileGroupCarousel({ items, groupTitle }: { items: Speaker[]; groupTit
                   </div>
                   {sp.role && (
                     <div
-                      className="text-[12px] font-semibold mb-2 opacity-85 leading-snug"
+                      className="text-[12px] font-semibold opacity-85 leading-snug"
                       style={{
                         color: isMara ? '#E8D5CE' : '#8B1E3F',
                         fontFamily: "'Plus Jakarta Sans', sans-serif",
@@ -215,18 +215,41 @@ function MobileGroupCarousel({ items, groupTitle }: { items: Speaker[]; groupTit
                       {sp.role}
                     </div>
                   )}
+
+                  {/* Divisor dourado + Mini Tag "Tema da Palestra" */}
+                  <div className="flex items-center justify-center gap-2 my-2.5">
+                    <div
+                      className={`h-[1px] w-5 ${
+                        isMara ? 'bg-[#D4AF37]/60' : 'bg-[#D4AF37]/50'
+                      }`}
+                    />
+                    <span
+                      className="text-[9.5px] font-extrabold uppercase tracking-[0.14em]"
+                      style={{
+                        color: isMara ? '#D4AF37' : '#9E6A1B',
+                        fontFamily: "'Plus Jakarta Sans', sans-serif",
+                      }}
+                    >
+                      {isMara ? 'Palestra de Encerramento' : 'Tema da Palestra'}
+                    </span>
+                    <div
+                      className={`h-[1px] w-5 ${
+                        isMara ? 'bg-[#D4AF37]/60' : 'bg-[#D4AF37]/50'
+                      }`}
+                    />
+                  </div>
+
                   <div
-                    className="mt-1.5"
                     style={{
                       fontFamily: "'Cormorant Garamond', serif",
                       fontStyle: 'italic',
                       fontWeight: 700,
                       fontSize: isMara ? 19 : 17.5,
                       lineHeight: 1.35,
-                      color: isMara ? '#FDFBF7' : '#3D1220',
+                      color: isMara ? '#FDFBF7' : '#2A0813',
                     }}
                   >
-                    {sp.talk}
+                    “{sp.talk}”
                   </div>
                 </div>
 
@@ -435,7 +458,7 @@ export default function SpeakersSection() {
                             </div>
                             {sp.role && (
                               <div
-                                className="text-[12.5px] font-semibold mb-2.5 opacity-85 leading-snug"
+                                className="text-[12.5px] font-semibold opacity-85 leading-snug"
                                 style={{
                                   color: isMara ? '#E8D5CE' : '#8B1E3F',
                                   fontFamily: "'Plus Jakarta Sans', sans-serif",
@@ -444,18 +467,41 @@ export default function SpeakersSection() {
                                 {sp.role}
                               </div>
                             )}
+
+                            {/* Divisor dourado + Mini Tag "Tema da Palestra" */}
+                            <div className="flex items-center justify-center gap-2 my-2.5">
+                              <div
+                                className={`h-[1px] w-7 ${
+                                  isMara ? 'bg-[#D4AF37]/60' : 'bg-[#D4AF37]/50'
+                                }`}
+                              />
+                              <span
+                                className="text-[10px] font-extrabold uppercase tracking-[0.15em]"
+                                style={{
+                                  color: isMara ? '#D4AF37' : '#9E6A1B',
+                                  fontFamily: "'Plus Jakarta Sans', sans-serif",
+                                }}
+                              >
+                                {isMara ? 'Palestra de Encerramento' : 'Tema da Palestra'}
+                              </span>
+                              <div
+                                className={`h-[1px] w-7 ${
+                                  isMara ? 'bg-[#D4AF37]/60' : 'bg-[#D4AF37]/50'
+                                }`}
+                              />
+                            </div>
+
                             <div
-                              className="mt-1.5"
                               style={{
                                 fontFamily: "'Cormorant Garamond', serif",
                                 fontStyle: 'italic',
                                 fontWeight: 700,
                                 fontSize: isMara ? 20 : 18,
                                 lineHeight: 1.35,
-                                color: isMara ? '#FDFBF7' : '#3D1220',
+                                color: isMara ? '#FDFBF7' : '#2A0813',
                               }}
                             >
-                              {sp.talk}
+                              “{sp.talk}”
                             </div>
                           </div>
 
