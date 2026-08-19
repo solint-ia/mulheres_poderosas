@@ -53,7 +53,7 @@ export const speakerGroups: SpeakerGroup[] = [
         role: 'Apresentadora, Cantora, Empresária & Convidada Especial',
         category: 'Encerramento Especial',
         time: '17:20 às 18:30 · Encerramento Master',
-        talk: 'Encerramento Magna: Coragem, Reinvenção e Protagonismo Feminino',
+        talk: 'Coragem, Reinvenção e Protagonismo Feminino',
         talkDescription:
           'Uma apresentação emocionante e inspiradora de encerramento unindo trajetória de vida, superação, comunicação estratégica e a importância de assumir o palco da própria história com fé e determinação.',
         takeaways: [
@@ -494,7 +494,7 @@ export const shift1Rows: ScheduleRow[] = [
   {
     time: '17:20 - 18:30',
     items: [
-      { speaker: 'Mara Maravilha', talk: 'Palestra de Encerramento do Evento' },
+      { speaker: 'Mara Maravilha', talk: 'Coragem, Reinvenção e Protagonismo Feminino' },
     ],
   },
 ];
