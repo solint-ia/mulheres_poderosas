@@ -41,7 +41,7 @@ export default function VenueSection() {
           Delmar Hotel · Aracaju/SE
         </h2>
         <p className="text-[16px] font-semibold text-[#8B1E3F] m-0">
-          24 de Outubro de 2026 · Das 09:00 às 18:30
+          24 de Outubro de 2026 · Das 08:00 às 19:30
         </p>
       </motion.div>
 

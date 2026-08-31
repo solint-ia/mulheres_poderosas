@@ -26,14 +26,27 @@ export interface SpeakerGroup {
   items: Speaker[];
 }
 
+export type ScheduleCategory =
+  | 'credenciamento'
+  | 'painel'
+  | 'palestra'
+  | 'conexao'
+  | 'almoco'
+  | 'coffeebreak'
+  | 'encerramento';
+
 export interface ScheduleItem {
-  speaker: string;
-  talk: string;
+  speaker?: string;
+  talk?: string;
 }
 
 export interface ScheduleRow {
   time: string;
-  items: ScheduleItem[];
+  categoryTitle?: string;
+  categoryType?: ScheduleCategory;
+  description?: string;
+  items?: ScheduleItem[];
+  icon?: 'coffee' | 'users' | 'lunch' | 'sparkle';
 }
 
 export interface FaqItem {
@@ -52,15 +65,15 @@ export const speakerGroups: SpeakerGroup[] = [
         name: 'Mara Maravilha',
         role: 'Apresentadora, Cantora, Empresária & Convidada Especial',
         category: 'Encerramento Especial',
-        time: '17:20 às 18:30 · Encerramento Master',
-        talk: 'Coragem, Reinvenção e Protagonismo Feminino',
+        time: '18:00 às 19:30 · Encerramento Especial',
+        talk: 'Uma conversa inspiradora sobre fé, propósito, superação, carreira e protagonismo feminino',
         talkDescription:
-          'Uma apresentação emocionante e inspiradora de encerramento unindo trajetória de vida, superação, comunicação estratégica e a importância de assumir o palco da própria história com fé e determinação.',
+          'Uma conversa emocionante e inspiradora de encerramento unindo fé, propósito, superação, trajetória de carreira e a força do protagonismo feminino com coragem e determinação.',
         takeaways: [
-          'Como manter a resiliência e se reinventar em diferentes momentos da carreira.',
-          'A força do posicionamento pessoal e autenticidade na construção de marca.',
+          'Como manter a fé, resiliência e propósito em momentos de transição e crescimento.',
+          'A força do posicionamento pessoal autêntico na construção de marca.',
           'Ferramentas de comunicação para encantar, liderar e influenciar com propósito.',
-          'Equilíbrio entre vida pública, família, fé e gestão de novos projetos.',
+          'Equilíbrio entre vida pública, família, fé e novos projetos de negócios.',
         ],
         bio: [
           'Mara Maravilha é uma das comunicadoras e artistas mais icônicas da televisão brasileira, com décadas de atuação marcante no entretenimento, na música e na gestão de projetos culturais.',
@@ -80,7 +93,7 @@ export const speakerGroups: SpeakerGroup[] = [
         name: 'Dra. Raquel Dosea',
         role: 'Clínica & Esteta',
         category: 'Saúde, Estética e Longevidade',
-        time: '09:00 às 09:20 · Bloco Manhã',
+        time: '09:00 às 10:00 · Painel de Abertura',
         talk: 'A Beleza Rara da Mulher Empoderada',
         talkDescription:
           'Uma imersão sobre como a estética avançada e a autoestima estratégica impactam a presença executiva e o posicionamento da mulher no ambiente de negócios.',
@@ -101,7 +114,7 @@ export const speakerGroups: SpeakerGroup[] = [
         name: 'Dra. Caroline Vicente',
         role: 'Médica & Estrategista de Autoestima Feminina',
         category: 'Saúde, Estética e Longevidade',
-        time: '09:20 às 09:40 · Bloco Manhã',
+        time: '09:00 às 10:00 · Painel de Abertura',
         talk: 'A autoestima quando eu me escolho com estratégia',
         talkDescription:
           'Descubra como colocar o autocuidado no centro da sua rotina diária para sustentar o crescimento profissional acelerado sem abrir mão da sua saúde e paz mental.',
@@ -122,7 +135,7 @@ export const speakerGroups: SpeakerGroup[] = [
         name: 'Dra. Caroline Smith',
         role: 'Médica Ginecologista & Especialista em Longevidade Íntima',
         category: 'Saúde, Estética e Longevidade',
-        time: '09:40 às 10:00 · Bloco Manhã',
+        time: '09:00 às 10:00 · Painel de Abertura',
         talk: 'Empoderamento Feminino: ciência, saúde íntima e longevidade caminham juntas',
         talkDescription:
           'Desmistificando a saúde íntima e a longevidade feminina através da ciência avançada, tecnologia a laser e tratamentos de prevenção de alta eficácia.',
@@ -143,7 +156,7 @@ export const speakerGroups: SpeakerGroup[] = [
         name: 'Christiane Espínola Bandeira de Mello',
         role: 'Cirurgiã Dentista / Esteticista e Cosmetóloga',
         category: 'Saúde, Estética e Longevidade',
-        time: '14:20 às 15:00 · Bloco Tarde',
+        time: '14:40 às 15:20 · Bloco Tarde',
         talk: 'A nova era da Estética: tecnologia, bioestimuladores e longevidade com naturalidade',
         talkDescription:
           'Explore as tecnologias estéticas mais modernas do mundo, incluindo Laser CO2 e bioestimuladores de colágeno para resultados naturais e duradouros na pele.',
@@ -164,7 +177,7 @@ export const speakerGroups: SpeakerGroup[] = [
         name: 'Dra. Aline Fioravanti',
         role: 'Médica & Especialista em MFAT Integrativo',
         category: 'Saúde, Estética e Longevidade',
-        time: '16:40 às 17:20 · Bloco Tarde',
+        time: '17:10 às 17:50 · Bloco Tarde',
         talk: 'Autocuidado estratégico: como o MFAT pode integrar beleza, saúde e rotina profissional',
         talkDescription:
           'Uma apresentação inovadora sobre os benefícios do MFAT e protocolos integrativos para unir saúde do corpo, estética e gestão de desgaste profissional.',
@@ -180,6 +193,25 @@ export const speakerGroups: SpeakerGroup[] = [
         image: '/palestrantes/Dra Aline Fioravanti.jpeg',
         socials: { instagram: 'https://instagram.com/dra.alinefioravanti' },
       },
+      {
+        id: 'sp-fernandoaraujo',
+        name: 'Dr. Fernando Araújo',
+        role: 'Cirurgião Plástico',
+        category: 'Saúde, Estética e Longevidade',
+        talk: 'Cirurgia Plástica, Autoestima e Empoderamento Feminino',
+        talkDescription:
+          'Uma abordagem médica e estética de excelência sobre o impacto transformador da cirurgia plástica na autoestima, autoconfiança e bem-estar da mulher moderna.',
+        takeaways: [
+          'Avanços da cirurgia plástica moderna com foco em naturalidade e segurança.',
+          'Como a harmonia corporal potencializa a presença e a autoimagem feminina.',
+          'Critérios médicos essenciais para a tomada de decisão consciente.',
+        ],
+        bio: [
+          'Dr. Fernando Araújo é cirurgião plástico especialista em procedimentos de alta precisão estética e reparadora, atuando com excelência e cuidado humanizado na valorização da autoestima.',
+        ],
+        quote: 'A verdadeira transformação estética é aquela que eleva sua autoestima e reflete a sua essência com segurança.',
+        socials: { instagram: 'https://instagram.com/fernandoaraujoplastica' },
+      },
     ],
   },
   {
@@ -190,7 +222,7 @@ export const speakerGroups: SpeakerGroup[] = [
         name: 'Leonardo Lima',
         role: 'Estrategista de Vendas com IA & Marketing Digital',
         category: 'Negócios, Tecnologia e Gestão',
-        time: '13:50 às 14:20 · Bloco Tarde',
+        time: '14:00 às 14:40 · Bloco Tarde',
         talk: 'Como encher sua agenda de clientes vendendo todos os dias com IA',
         talkDescription:
           'Um passo a passo prático sobre como utilizar ferramentas de Inteligência Artificial para automatizar a captação de clientes, criar ofertas irresistíveis e fechar vendas continuamente.',
@@ -211,7 +243,7 @@ export const speakerGroups: SpeakerGroup[] = [
         name: 'Italo Marcel',
         role: 'Consultor de Gestão Empresarial & Estratégia de Vendas',
         category: 'Negócios, Tecnologia e Gestão',
-        time: '15:00 às 15:40 · Bloco Tarde',
+        time: '15:20 às 16:00 · Bloco Tarde',
         talk: 'Sua empresa não precisa vender mais, ela precisa vender melhor',
         talkDescription:
           'Entenda os pilares da lucratividade real: eficiência operacional, esteira de produtos de alto valor (Ticket Alto) e retenção de clientes fidelizados.',
@@ -232,7 +264,6 @@ export const speakerGroups: SpeakerGroup[] = [
         name: 'Marcílio',
         role: 'Auditor Fiscal · Exatas Contabilidade',
         category: 'Negócios, Tecnologia e Gestão',
-        time: '10:00 às 10:20 · Bloco Manhã',
         talk: 'Benefícios voltados a produtos e serviços relacionados à saúde da mulher e Reforma Tributária',
         talkDescription:
           'Uma análise clara dos impactos da Reforma Tributária nas empresas femininas e como utilizar benefícios legais para reduzir impostos e investir na empresa.',
@@ -253,7 +284,6 @@ export const speakerGroups: SpeakerGroup[] = [
         name: 'Antônio Soares',
         role: 'Contador · Exatas Contabilidade',
         category: 'Negócios, Tecnologia e Gestão',
-        time: '10:00 às 10:20 · Bloco Manhã',
         talk: 'Benefícios voltados a produtos e serviços relacionados à saúde da mulher e Reforma Tributária',
         talkDescription:
           'Uma análise clara dos impactos da Reforma Tributária nas empresas femininas e como utilizar benefícios legais para reduzir impostos e investir na empresa.',
@@ -270,23 +300,45 @@ export const speakerGroups: SpeakerGroup[] = [
         socials: { linkedin: 'https://linkedin.com' },
       },
       {
-        id: 'sp-ramonny',
-        name: 'Dra. Ramonny',
-        role: 'Advogada & Consultora em Compliance Empresarial',
+        id: 'sp-mineiacarvalho',
+        name: 'Mineia Carvalho',
+        role: 'Especialista em Gestão de Pessoas & Liderança 360°',
         category: 'Negócios, Tecnologia e Gestão',
-        time: '10:20 às 10:40 · Bloco Manhã',
-        talk: 'Importância da NRJ para empresas e segurança jurídica',
+        time: '10:00 às 10:40 · Bloco Manhã',
+        talk: 'Liderança 360° – O Equilíbrio Entre Negócios, Pessoas e Propósito e a Importância da NR1',
         talkDescription:
-          'Saiba como proteger a sua empresa de riscos trabalhistas e operacionais implementando normas de conformidade jurídica de forma prática e descomplicada.',
+          'Como liderar equipes e organizações unindo inteligência emocional, foco no capital humano, propósito estratégico e a implementação prática da NR1 para ambientes de alta performance e bem-estar.',
         takeaways: [
-          'Principais vulnerabilidades jurídicas de empresas em crescimento.',
-          'Como estruturar contratos e normas internas seguras.',
-          'Prevenção de passivos trabalhistas e fortalecimento do patrimônio.',
+          'Os pilares da Liderança 360° para engajar pessoas e sustentar resultados.',
+          'O equilíbrio estratégico entre metas de negócios, bem-estar da equipe e propósito.',
+          'A importância da NR1 na estruturação de processos e segurança nas empresas.',
         ],
         bio: [
-          'Dra. Ramonny é advogada especialista em direito empresarial e gestão de riscos jurídicos para empreendedoras de pequeno e médio porte.',
+          'Mineia Carvalho (@mineianc) é mentora e especialista em liderança e desenvolvimento de equipes, atuando no fortalecimento de gestores para liderarem com empatia, método e alto desempenho.',
         ],
-        quote: 'Segurança jurídica é o alicerce indispensável para crescer sem medo.',
+        quote: 'Liderar é encontrar o equilíbrio entre resultados de negócios e o cuidado genuíno com as pessoas.',
+        image: '/palestrantes/Mineia Carvalho.jpeg',
+        socials: { instagram: 'https://instagram.com/mineianc' },
+      },
+      {
+        id: 'sp-edercezario',
+        name: 'Eder Cezario',
+        role: 'Especialista em Gestão Estratégica, Liderança & Segurança do Trabalho',
+        category: 'Negócios, Tecnologia e Gestão',
+        time: '10:00 às 10:40 · Bloco Manhã',
+        talk: 'Liderança 360° – O Equilíbrio Entre Negócios, Pessoas e Propósito e a Importância da NR1',
+        talkDescription:
+          'Uma imersão prática sobre liderança humanizada e a aplicação das diretrizes da NR1 na gestão de riscos e valorização do capital humano nas organizações.',
+        takeaways: [
+          'Implementação prática da NR1 e prevenção de riscos nas empresas.',
+          'Como a cultura de segurança e cuidado impulsiona a produtividade organizacional.',
+          'Estratégias de liderança para alinhar propósito empresarial e execução operacional.',
+        ],
+        bio: [
+          'Eder Cezario é especialista em liderança estratégica e conformidade da NR1, ajudando líderes e empresas a construírem ambientes corporativos seguros, equilibrados e eficientes.',
+        ],
+        quote: 'Ambientes seguros e líderes conscientes são o alicerce de qualquer empresa que deseja crescer com solidez.',
+        image: '/palestrantes/Eder Cezario.jpeg',
         socials: { instagram: 'https://instagram.com' },
       },
     ],
@@ -299,7 +351,7 @@ export const speakerGroups: SpeakerGroup[] = [
         name: 'Dr. Guilherme Britto',
         role: 'Especialista em Desenvolvimento Humano & Gestão Emocional',
         category: 'Mente, Genética e Equilíbrio',
-        time: '11:00 às 11:40 · Bloco Manhã',
+        time: '10:50 às 11:30 · Bloco Manhã',
         talk: 'A mulher por trás da empreendedora de sucesso',
         talkDescription:
           'Uma conversa profunda sobre inteligência emocional, identidade e superação da síndrome da impostora para construir uma jornada profissional leve e vitoriosa.',
@@ -320,7 +372,7 @@ export const speakerGroups: SpeakerGroup[] = [
         name: 'Gabriela Benevides Reis Oliveira',
         role: 'Nutricionista Clínica & Hospitalar',
         category: 'Mente, Genética e Equilíbrio',
-        time: '11:00 às 11:40 · Bloco Manhã',
+        time: '10:50 às 11:30 · Bloco Manhã',
         talk: 'A mulher por trás da empreendedora de sucesso',
         talkDescription:
           'Uma conversa profunda sobre saúde, nutrição e equilíbrio emocional para construir uma jornada profissional leve e sustentável.',
@@ -343,8 +395,8 @@ export const speakerGroups: SpeakerGroup[] = [
         name: 'Dr. André Yoichi Kuwano',
         role: 'Urologista com atuação em cirurgia minimamente invasiva, cirurgia robótica e uro-oncologia',
         category: 'Mente, Genética e Equilíbrio',
-        time: '11:40 às 12:10 · Bloco Manhã',
-        talk: 'Seu DNA, seu maior patrimônio: Como a genética pode transformar sua saúde e seu futuro',
+        time: '11:30 às 12:00 · Bloco Manhã',
+        talk: 'Seu DNA, seu maior patrimônio: como a genética pode transformar sua saúde e seu futuro',
         talkDescription:
           'Descubra como os testes genéticos, a cirurgia de precisão e os avanços da medicina moderna podem transformar sua saúde e garantir um futuro de longevidade e bem-estar.',
         takeaways: [
@@ -364,8 +416,8 @@ export const speakerGroups: SpeakerGroup[] = [
         name: 'Dra. Gabriela Nabuco',
         role: 'Médica Psiquiatra',
         category: 'Mente, Genética e Equilíbrio',
-        time: '16:00 às 16:40 · Bloco Tarde',
-        talk: 'Pilares da saúde mental da mulher empreendedora',
+        time: '16:30 às 17:10 · Bloco Tarde',
+        talk: 'Saúde da mulher empreendedora: como crescer sem adoecer',
         talkDescription:
           'Ferramentas de medicina preventiva e psiquiatria para identificar sinais de burnout, ansiedade e exaustão antes que afetem sua vida física e seus negócios.',
         takeaways: [
@@ -385,7 +437,7 @@ export const speakerGroups: SpeakerGroup[] = [
         name: 'Leda Maria Moyses Nobile',
         role: 'Psicóloga Clínica · CRP 19/2846',
         category: 'Mente, Genética e Equilíbrio',
-        time: '16:00 às 16:40 · Bloco Tarde',
+        time: '16:30 às 17:10 · Bloco Tarde',
         talk: 'Saúde da mulher empreendedora: como crescer sem adoecer',
         talkDescription:
           'Estratégias da psicologia clínica e medicina comportamental para prevenção do esgotamento, manejo de estresse e fortalecimento da saúde mental da mulher no ambiente de negócios.',
@@ -425,77 +477,149 @@ export function getAllSpeakers(): Speaker[] {
   return speakerGroups.flatMap((group) => group.items);
 }
 
-// ─── Programação ──────────────────────────────────────────────────────────────
+// ─── Programação Oficial (Baseada no Flyer Oficial do Evento) ──────────────────
 
 export const shift0Rows: ScheduleRow[] = [
   {
-    time: '09:00 - 10:00',
+    time: '08:00 às 09:00',
+    categoryTitle: 'CREDENCIAMENTO E WELCOME COFFEE',
+    categoryType: 'credenciamento',
+    description: 'Recepção dos participantes, entrega do kit oficial, networking e visita aos expositores.',
+    icon: 'coffee',
+  },
+  {
+    time: '09:00 às 10:00',
+    categoryTitle: 'PAINEL DE ABERTURA',
+    categoryType: 'painel',
     items: [
       { speaker: 'Dra. Raquel Dosea', talk: 'A Beleza Rara da Mulher Empoderada' },
       { speaker: 'Dra. Caroline Vicente', talk: 'A autoestima quando eu me escolho com estratégia' },
-      { speaker: 'Dra. Caroline Smith', talk: 'Empoderamento Feminino: quando ciência, saúde íntima e longevidade caminham juntas' },
+      { speaker: 'Dra. Caroline Smith', talk: 'Empoderamento Feminino: quando ciência, saúde íntima e longevidade caminham juntas.' },
     ],
   },
   {
-    time: '10:00 - 10:40',
+    time: '10:00 às 10:40',
+    categoryTitle: 'PALESTRA',
+    categoryType: 'palestra',
     items: [
-      { speaker: 'Marcílio', talk: 'Benefícios voltados a produtos e serviços relacionados à saúde da mulher e Reforma Tributária' },
-      { speaker: 'Antônio Soares', talk: 'Benefícios voltados a produtos e serviços relacionados à saúde da mulher e Reforma Tributária' },
-      { speaker: 'Dra. Ramonny', talk: 'Importância da NRJ para empresas' },
+      {
+        speaker: 'Mineia Carvalho e Eder Cezario',
+        talk: 'Liderança 360° – O Equilíbrio Entre Negócios, Pessoas e Propósito e a Importância da NR1',
+      },
     ],
   },
   {
-    time: '11:00 - 11:40',
+    time: '10:40 às 10:50',
+    categoryTitle: 'MOMENTO CONEXÃO',
+    categoryType: 'conexao',
+    description: 'Networking entre participantes, visita aos patrocinadores e expositores.',
+    icon: 'users',
+  },
+  {
+    time: '10:50 às 11:30',
+    categoryTitle: 'PALESTRA',
+    categoryType: 'palestra',
     items: [
-      { speaker: 'Dr. Guilherme Britto', talk: 'A mulher por trás da empreendedora de sucesso' },
-      { speaker: 'Gabriela Benevides Reis Oliveira', talk: 'A mulher por trás da empreendedora de sucesso' },
+      {
+        speaker: 'Dr. Guilherme Britto e Gabriela Benevides (Nutricionista)',
+        talk: 'A mulher por trás da empreendedora de sucesso.',
+      },
     ],
   },
   {
-    time: '11:40 - 12:10',
+    time: '11:30 às 12:00',
+    categoryTitle: 'PALESTRA',
+    categoryType: 'palestra',
     items: [
-      { speaker: 'Dr. André Yoichi Kuwano', talk: 'Seu DNA, seu maior patrimônio: Como a genética pode transformar sua saúde e seu futuro' },
+      {
+        speaker: 'Dr. André Yoichi',
+        talk: 'Seu DNA, seu maior patrimônio: como a genética pode transformar sua saúde e seu futuro.',
+      },
     ],
+  },
+  {
+    time: '12:00 às 14:00',
+    categoryTitle: 'INTERVALO PARA ALMOÇO',
+    categoryType: 'almoco',
+    description: 'Momento para almoço, descanso e networking.',
+    icon: 'lunch',
   },
 ];
 
 export const shift1Rows: ScheduleRow[] = [
   {
-    time: '13:50 - 14:20',
+    time: '14:00 às 14:40',
+    categoryTitle: 'PALESTRA',
+    categoryType: 'palestra',
     items: [
-      { speaker: 'Leonardo Lima', talk: 'Como encher sua agenda de clientes vendendo todos os dias com IA' },
+      {
+        speaker: 'Leonardo Lima',
+        talk: 'Como encher sua agenda de clientes vendendo todos os dias com IA.',
+      },
     ],
   },
   {
-    time: '14:20 - 15:00',
+    time: '14:40 às 15:20',
+    categoryTitle: 'PALESTRA',
+    categoryType: 'palestra',
     items: [
-      { speaker: 'Christiane Espínola', talk: 'A nova era da Estética: tecnologia, bioestimuladores e longevidade com naturalidade' },
+      {
+        speaker: 'Dra. Christiane Espínola',
+        talk: 'A nova era da Estética: tecnologia, bioestimuladores e longevidade com naturalidade.',
+      },
     ],
   },
   {
-    time: '15:00 - 15:40',
+    time: '15:20 às 16:00',
+    categoryTitle: 'PALESTRA',
+    categoryType: 'palestra',
     items: [
-      { speaker: 'Italo Marcel', talk: 'Sua empresa não precisa vender mais, ela precisa vender melhor' },
+      {
+        speaker: 'Italo Marcel',
+        talk: 'Sua empresa não precisa vender mais, ela precisa vender melhor.',
+      },
     ],
   },
   {
-    time: '16:00 - 16:40',
+    time: '16:00 às 16:30',
+    categoryTitle: 'COFFEE BREAK & NETWORKING',
+    categoryType: 'coffeebreak',
+    description: 'Momento para visita aos patrocinadores, conexões e experiências.',
+    icon: 'coffee',
+  },
+  {
+    time: '16:30 às 17:10',
+    categoryTitle: 'PALESTRA',
+    categoryType: 'palestra',
     items: [
-      { speaker: 'Dra. Gabriela Nabuco', talk: 'Pilares da saúde mental da mulher empreendedora' },
-      { speaker: 'Leda Maria Moyses Nobile', talk: 'Saúde da mulher empreendedora: como crescer sem adoecer' },
+      {
+        speaker: 'Dra. Gabriela Nabuco e Psicóloga Leda Nobile',
+        talk: 'Saúde da mulher empreendedora: como crescer sem adoecer.',
+      },
     ],
   },
   {
-    time: '16:40 - 17:20',
+    time: '17:10 às 17:50',
+    categoryTitle: 'PALESTRA',
+    categoryType: 'palestra',
     items: [
-      { speaker: 'Dra. Aline Fioravanti', talk: 'Autocuidado estratégico: como o MFAT pode integrar beleza, saúde e rotina profissional' },
+      {
+        speaker: 'Dra. Aline Fioravanti',
+        talk: 'Autocuidado estratégico: como o MFAT pode integrar beleza, saúde e rotina profissional.',
+      },
     ],
   },
   {
-    time: '17:20 - 18:30',
+    time: '18:00 às 19:30',
+    categoryTitle: 'ENCERRAMENTO ESPECIAL',
+    categoryType: 'encerramento',
     items: [
-      { speaker: 'Mara Maravilha', talk: 'Coragem, Reinvenção e Protagonismo Feminino' },
+      {
+        speaker: 'Mara Maravilha',
+        talk: 'Uma conversa inspiradora sobre fé, propósito, superação, carreira e protagonismo feminino.',
+      },
     ],
+    icon: 'sparkle',
   },
 ];
 
