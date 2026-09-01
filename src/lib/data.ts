@@ -110,48 +110,6 @@ export const speakerGroups: SpeakerGroup[] = [
         socials: { instagram: 'https://instagram.com/dra_raqueldosea' },
       },
       {
-        id: 'sp-carolinev',
-        name: 'Dra. Caroline Vicente',
-        role: 'Médica & Estrategista de Autoestima Feminina',
-        category: 'Saúde, Estética e Longevidade',
-        time: '09:00 às 10:00 · Painel de Abertura',
-        talk: 'A autoestima quando eu me escolho com estratégia',
-        talkDescription:
-          'Descubra como colocar o autocuidado no centro da sua rotina diária para sustentar o crescimento profissional acelerado sem abrir mão da sua saúde e paz mental.',
-        takeaways: [
-          'Planejamento de tempo focado no bem-estar físico, emocional e estético.',
-          'Eliminando a culpa da mulher empreendedora ao priorizar a si mesma.',
-          'Estratégias de posicionamento pessoal alinhadas ao seu estilo de vida.',
-        ],
-        bio: [
-          'Dra. Caroline Vicente atua na interseção entre saúde, estética e desenvolvimento pessoal, ajudando centenas de mulheres a recuperar a autoconfiança e o protagonismo da própria jornada.',
-        ],
-        quote: 'Se escolher não é egoísmo, é a base necessária para liderar com excelência.',
-        image: '/palestrantes/Dra Caroline Vicent.jpeg',
-        socials: { instagram: 'https://instagram.com/dracarolvicente' },
-      },
-      {
-        id: 'sp-carolines',
-        name: 'Dra. Caroline Smith',
-        role: 'Médica Ginecologista & Especialista em Longevidade Íntima',
-        category: 'Saúde, Estética e Longevidade',
-        time: '09:00 às 10:00 · Painel de Abertura',
-        talk: 'Empoderamento Feminino: ciência, saúde íntima e longevidade caminham juntas',
-        talkDescription:
-          'Desmistificando a saúde íntima e a longevidade feminina através da ciência avançada, tecnologia a laser e tratamentos de prevenção de alta eficácia.',
-        takeaways: [
-          'Avanços da medicina a laser e tratamentos íntimos preventivos.',
-          'Como o equilíbrio hormonal afeta a disposição, clareza mental e vitalidade.',
-          'Longevidade com qualidade de vida e liberdade em todas as fases da mulher.',
-        ],
-        bio: [
-          'Dra. Caroline Smith é médica reconhecida pela abordagem humanizada e científica na saúde feminina, sendo pioneira em tecnologias para tratamentos corporais e íntimos.',
-        ],
-        quote: 'Conhecer o próprio corpo é a forma mais profunda de empoderamento.',
-        image: '/palestrantes/Dra Caroline Smith.jpeg',
-        socials: { instagram: 'https://instagram.com/dracarolinesmith' },
-      },
-      {
         id: 'sp-christiane',
         name: 'Christiane Espínola Bandeira de Mello',
         role: 'Cirurgiã Dentista / Esteticista e Cosmetóloga',
@@ -173,43 +131,23 @@ export const speakerGroups: SpeakerGroup[] = [
         socials: { instagram: 'https://instagram.com/drachristianeespinola' },
       },
       {
-        id: 'sp-aline',
-        name: 'Dra. Aline Fioravanti',
-        role: 'Médica & Especialista em MFAT Integrativo',
-        category: 'Saúde, Estética e Longevidade',
-        time: '17:10 às 17:50 · Bloco Tarde',
-        talk: 'Autocuidado estratégico: como o MFAT pode integrar beleza, saúde e rotina profissional',
-        talkDescription:
-          'Uma apresentação inovadora sobre os benefícios do MFAT e protocolos integrativos para unir saúde do corpo, estética e gestão de desgaste profissional.',
-        takeaways: [
-          'O que é o protocolo MFAT e como ele atua no organismo.',
-          'Integração de tratamentos estéticos de alta performance na rotina executiva.',
-          'Redução da fadiga corporal através do autocuidado direcionado.',
-        ],
-        bio: [
-          'Dra. Aline Fioravanti é médica com atuação focada em procedimentos integrativos que conectam beleza, saúde metabólica e produtividade contínua.',
-        ],
-        quote: 'Sua rotina profissional precisa alimentar sua saúde, não consumi-la.',
-        image: '/palestrantes/Dra Aline Fioravanti.jpeg',
-        socials: { instagram: 'https://instagram.com/dra.alinefioravanti' },
-      },
-      {
         id: 'sp-fernandoaraujo',
         name: 'Dr. Fernando Araújo',
         role: 'Cirurgião Plástico',
         category: 'Saúde, Estética e Longevidade',
-        talk: 'Cirurgia Plástica, Autoestima e Empoderamento Feminino',
+        time: '17:10 às 17:50 · Bloco Tarde',
+        talk: 'Autocuidado estratégico: como o MFAT pode integrar beleza, saúde e rotina profissional',
         talkDescription:
-          'Uma abordagem médica e estética de excelência sobre o impacto transformador da cirurgia plástica na autoestima, autoconfiança e bem-estar da mulher moderna.',
+          'Uma apresentação inovadora sobre os benefícios do MFAT e protocolos integrativos para unir saúde do corpo, estética de alta performance e gestão de desgaste profissional.',
         takeaways: [
-          'Avanços da cirurgia plástica moderna com foco em naturalidade e segurança.',
-          'Como a harmonia corporal potencializa a presença e a autoimagem feminina.',
-          'Critérios médicos essenciais para a tomada de decisão consciente.',
+          'O que é o protocolo MFAT e como ele atua na regeneração tecidual e estética.',
+          'Integração de tratamentos estéticos e cirúrgicos de alta precisão na rotina executiva.',
+          'Autocuidado estratégico como pilar fundamental de saúde e longevidade.',
         ],
         bio: [
-          'Dr. Fernando Araújo é cirurgião plástico especialista em procedimentos de alta precisão estética e reparadora, atuando com excelência e cuidado humanizado na valorização da autoestima.',
+          'Dr. Fernando Araújo é cirurgião plástico especialista em procedimentos de alta precisão estética e reparadora, atuando com excelência, ciência avançada e cuidado humanizado na valorização da autoestima.',
         ],
-        quote: 'A verdadeira transformação estética é aquela que eleva sua autoestima e reflete a sua essência com segurança.',
+        quote: 'Sua rotina profissional precisa alimentar sua saúde e autoestima, não consumi-las.',
         image: '/palestrantes/Fernando Araujo.jpeg',
         socials: { instagram: 'https://instagram.com/fernandoaraujoplastica' },
       },
@@ -494,8 +432,6 @@ export const shift0Rows: ScheduleRow[] = [
     categoryType: 'painel',
     items: [
       { speaker: 'Dra. Raquel Dosea', talk: 'A Beleza Rara da Mulher Empoderada' },
-      { speaker: 'Dra. Caroline Vicente', talk: 'A autoestima quando eu me escolho com estratégia' },
-      { speaker: 'Dra. Caroline Smith', talk: 'Empoderamento Feminino: quando ciência, saúde íntima e longevidade caminham juntas.' },
     ],
   },
   {
@@ -605,7 +541,7 @@ export const shift1Rows: ScheduleRow[] = [
     categoryType: 'palestra',
     items: [
       {
-        speaker: 'Dra. Aline Fioravanti',
+        speaker: 'Dr. Fernando Araujo',
         talk: 'Autocuidado estratégico: como o MFAT pode integrar beleza, saúde e rotina profissional.',
       },
     ],
@@ -637,7 +573,7 @@ export const faqItems: FaqItem[] = [
   },
   {
     q: 'Como escolho meu programa no ingresso Legacy?',
-    a: 'No momento da compra do ingresso Master Legacy, você seleciona 1 dos 4 programas exclusivos: Harmonização Facial, Laser CO2 na face, Laser CO2 na parte íntima ou Gestão Empresarial.',
+    a: 'No momento da compra do ingresso Master Legacy, você seleciona 1 dos programas exclusivos: Harmonização Facial, Laser CO2 na face ou Gestão Empresarial.',
   },
   {
     q: 'Qual a diferença entre os ingressos?',
@@ -648,9 +584,8 @@ export const faqItems: FaqItem[] = [
 // ─── Ingressos ────────────────────────────────────────────────────────────────
 
 export const legacyPrograms = [
-  { title: 'Harmonização Facial', speaker: 'Dra. Carol Vicente ou Dra. Raquel' },
+  { title: 'Harmonização Facial', speaker: 'Dra. Raquel Dosea' },
   { title: 'Laser CO2 na Face', speaker: 'Christiane Espínola' },
-  { title: 'Laser CO2 Íntimo', speaker: 'Dra. Caroline Smith' },
   { title: 'Gestão Empresarial', speaker: 'Italo Marcel' },
 ];
 

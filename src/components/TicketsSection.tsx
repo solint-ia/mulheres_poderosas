@@ -237,10 +237,12 @@ export default function TicketsSection() {
 
             {/* Programas Exclusivos Grid */}
             <div className="grid grid-cols-2 gap-2.5 my-3">
-              {legacyPrograms.map((prog) => (
+              {legacyPrograms.map((prog, idx) => (
                 <div
                   key={prog.title}
-                  className="p-2.5 rounded bg-[#6B1730]/60 border border-[#D4AF37]/40 flex flex-col justify-center"
+                  className={`p-2.5 rounded bg-[#6B1730]/60 border border-[#D4AF37]/40 flex flex-col justify-center ${
+                    idx === 2 && legacyPrograms.length === 3 ? 'col-span-2' : ''
+                  }`}
                 >
                   <div className="text-[11.5px] font-bold text-[#D4AF37] leading-tight mb-1">
                     {prog.title}
