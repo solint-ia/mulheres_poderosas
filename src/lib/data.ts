@@ -210,6 +210,7 @@ export const speakerGroups: SpeakerGroup[] = [
           'Dr. Fernando Araújo é cirurgião plástico especialista em procedimentos de alta precisão estética e reparadora, atuando com excelência e cuidado humanizado na valorização da autoestima.',
         ],
         quote: 'A verdadeira transformação estética é aquela que eleva sua autoestima e reflete a sua essência com segurança.',
+        image: '/palestrantes/Fernando Araujo.jpeg',
         socials: { instagram: 'https://instagram.com/fernandoaraujoplastica' },
       },
     ],
