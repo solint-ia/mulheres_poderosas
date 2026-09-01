@@ -10,8 +10,28 @@ function getInitials(name: string): string {
   return parts.slice(0, 2).map((p) => p[0]).join('').toUpperCase();
 }
 
+function isValidSocialUrl(url?: string): boolean {
+  if (!url) return false;
+  const cleanUrl = url.trim().toLowerCase().replace(/\/+$/, '');
+  if (
+    !cleanUrl ||
+    cleanUrl === 'https://instagram.com' ||
+    cleanUrl === 'http://instagram.com' ||
+    cleanUrl === 'https://www.instagram.com' ||
+    cleanUrl === 'http://www.instagram.com' ||
+    cleanUrl === 'https://linkedin.com' ||
+    cleanUrl === 'http://linkedin.com' ||
+    cleanUrl === 'https://www.linkedin.com' ||
+    cleanUrl === 'http://www.linkedin.com' ||
+    cleanUrl === '#'
+  ) {
+    return false;
+  }
+  return true;
+}
+
 function getInstagramHandle(url?: string): string {
-  if (!url) return '';
+  if (!url || !isValidSocialUrl(url)) return '';
   const cleanUrl = url.trim().replace(/\/+$/, '');
   const match = cleanUrl.match(/instagram\.com\/([a-zA-Z0-9._]+)/i);
   if (match && match[1] && match[1].toLowerCase() !== 'instagram') {
@@ -24,7 +44,7 @@ function getInstagramHandle(url?: string): string {
 }
 
 function SpeakerSocialAction({ speaker, isSpecial = false }: { speaker: Speaker; isSpecial?: boolean }) {
-  if (speaker.socials?.instagram) {
+  if (speaker.socials?.instagram && isValidSocialUrl(speaker.socials.instagram)) {
     const handle = getInstagramHandle(speaker.socials.instagram);
     return (
       <div className={`mt-4 pt-3 border-t w-full ${isSpecial ? 'border-[#D4AF37]/30' : 'border-[rgba(139,30,63,0.12)]'}`}>
@@ -48,7 +68,7 @@ function SpeakerSocialAction({ speaker, isSpecial = false }: { speaker: Speaker;
     );
   }
 
-  if (speaker.socials?.linkedin) {
+  if (speaker.socials?.linkedin && isValidSocialUrl(speaker.socials.linkedin)) {
     return (
       <div className={`mt-4 pt-3 border-t w-full ${isSpecial ? 'border-[#D4AF37]/30' : 'border-[rgba(139,30,63,0.12)]'}`}>
         <a
@@ -71,15 +91,7 @@ function SpeakerSocialAction({ speaker, isSpecial = false }: { speaker: Speaker;
     );
   }
 
-  return (
-    <div
-      className={`mt-4 pt-3 border-t w-full flex items-center justify-center gap-1.5 text-[12px] font-semibold py-2 ${
-        isSpecial ? 'border-[#D4AF37]/30 text-[#D4AF37]' : 'border-[rgba(139,30,63,0.12)] text-[#5C4A50] opacity-70'
-      }`}
-    >
-      <span>Palestrante Confirmado(a)</span>
-    </div>
-  );
+  return null;
 }
 
 function SpeakerCardMedia({ speaker, isSpecial = false }: { speaker: Speaker; isSpecial?: boolean }) {

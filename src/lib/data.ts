@@ -175,7 +175,6 @@ export const speakerGroups: SpeakerGroup[] = [
         ],
         quote: 'A Inteligência Artificial não substitui pessoas; ela multiplica os resultados de quem sabe usá-la.',
         image: '/palestrantes/Leonardo Lima.png',
-        socials: { instagram: 'https://instagram.com', linkedin: 'https://linkedin.com' },
       },
       {
         id: 'sp-italo',
@@ -196,7 +195,7 @@ export const speakerGroups: SpeakerGroup[] = [
         ],
         quote: 'Faturamento é vaidade, lucro é sanidade e caixa é rei.',
         image: '/palestrantes/Italo Marcel.jpeg',
-        socials: { instagram: 'https://instagram.com/italomarcel1', linkedin: 'https://linkedin.com' },
+        socials: { instagram: 'https://instagram.com/italomarcel1' },
       },
       {
         id: 'sp-marcilio',
@@ -216,7 +215,6 @@ export const speakerGroups: SpeakerGroup[] = [
         ],
         quote: 'Planejamento tributário e conformidade fiscal não são custos, são investimentos diretos no lucro da sua empresa.',
         image: '/palestrantes/marcilio.png',
-        socials: { linkedin: 'https://linkedin.com' },
       },
       {
         id: 'sp-antonio',
@@ -236,7 +234,6 @@ export const speakerGroups: SpeakerGroup[] = [
         ],
         quote: 'Planejamento contábil e tributário é a base sólida para o crescimento seguro e lucrativo do seu negócio.',
         image: '/palestrantes/antonio soares.png',
-        socials: { linkedin: 'https://linkedin.com' },
       },
       {
         id: 'sp-mineiacarvalho',
@@ -278,7 +275,6 @@ export const speakerGroups: SpeakerGroup[] = [
         ],
         quote: 'Ambientes seguros e líderes conscientes são o alicerce de qualquer empresa que deseja crescer com solidez.',
         image: '/palestrantes/Eder Cezario.jpeg',
-        socials: { instagram: 'https://instagram.com' },
       },
     ],
   },
@@ -304,7 +300,6 @@ export const speakerGroups: SpeakerGroup[] = [
         ],
         quote: 'Seu negócio nunca vai crescer mais rápido do que o seu desenvolvimento pessoal.',
         image: '/palestrantes/Guilherme Lima Britto Aragão.jpeg',
-        socials: { instagram: 'https://instagram.com' },
       },
       {
         id: 'sp-gabrielab',
