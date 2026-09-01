@@ -175,6 +175,7 @@ export const speakerGroups: SpeakerGroup[] = [
         ],
         quote: 'A Inteligência Artificial não substitui pessoas; ela multiplica os resultados de quem sabe usá-la.',
         image: '/palestrantes/Leonardo Lima.png',
+        socials: { instagram: 'https://instagram.com/leoflimaa' },
       },
       {
         id: 'sp-italo',
@@ -215,6 +216,7 @@ export const speakerGroups: SpeakerGroup[] = [
         ],
         quote: 'Planejamento tributário e conformidade fiscal não são custos, são investimentos diretos no lucro da sua empresa.',
         image: '/palestrantes/marcilio.png',
+        socials: { instagram: 'https://instagram.com/marcilioaandradee' },
       },
       {
         id: 'sp-antonio',
@@ -275,6 +277,7 @@ export const speakerGroups: SpeakerGroup[] = [
         ],
         quote: 'Ambientes seguros e líderes conscientes são o alicerce de qualquer empresa que deseja crescer com solidez.',
         image: '/palestrantes/Eder Cezario.jpeg',
+        socials: { instagram: 'https://instagram.com/eder_engseg' },
       },
     ],
   },
@@ -300,6 +303,7 @@ export const speakerGroups: SpeakerGroup[] = [
         ],
         quote: 'Seu negócio nunca vai crescer mais rápido do que o seu desenvolvimento pessoal.',
         image: '/palestrantes/Guilherme Lima Britto Aragão.jpeg',
+        socials: { instagram: 'https://instagram.com/drguilhermebritto' },
       },
       {
         id: 'sp-gabrielab',
