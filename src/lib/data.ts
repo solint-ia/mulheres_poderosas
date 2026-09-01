@@ -573,7 +573,7 @@ export const faqItems: FaqItem[] = [
   },
   {
     q: 'Como escolho meu programa no ingresso Legacy?',
-    a: 'No momento da compra do ingresso Master Legacy, você seleciona 1 dos programas exclusivos: Harmonização Facial, Laser CO2 na face ou Gestão Empresarial.',
+    a: 'No momento da compra do ingresso Master Legacy, você seleciona 1 dos 5 programas exclusivos: Harmonização Facial, Laser CO2 na face, Laser CO2 na parte íntima, Gestão Empresarial ou Mentoria em Inteligência Artificial.',
   },
   {
     q: 'Qual a diferença entre os ingressos?',
@@ -586,7 +586,9 @@ export const faqItems: FaqItem[] = [
 export const legacyPrograms = [
   { title: 'Harmonização Facial', speaker: 'Dra. Raquel Dosea' },
   { title: 'Laser CO2 na Face', speaker: 'Christiane Espínola' },
+  { title: 'Laser CO2 Íntimo', speaker: 'Dra. Caroline Smith' },
   { title: 'Gestão Empresarial', speaker: 'Italo Marcel' },
+  { title: 'Mentoria em Inteligência Artificial', speaker: 'Leonardo Lima' },
 ];
 
 // ─── Audience cards ───────────────────────────────────────────────────────────

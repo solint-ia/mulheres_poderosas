@@ -236,22 +236,25 @@ export default function TicketsSection() {
             <div className="w-full border-t-2 border-dashed border-[#D4AF37]/30 my-4" />
 
             {/* Programas Exclusivos Grid */}
-            <div className="grid grid-cols-2 gap-2.5 my-3">
-              {legacyPrograms.map((prog, idx) => (
-                <div
-                  key={prog.title}
-                  className={`p-2.5 rounded bg-[#6B1730]/60 border border-[#D4AF37]/40 flex flex-col justify-center ${
-                    idx === 2 && legacyPrograms.length === 3 ? 'col-span-2' : ''
-                  }`}
-                >
-                  <div className="text-[11.5px] font-bold text-[#D4AF37] leading-tight mb-1">
-                    {prog.title}
+            <div className="grid grid-cols-2 gap-2 my-3">
+              {legacyPrograms.map((prog, idx) => {
+                const isLastOdd = idx === legacyPrograms.length - 1 && legacyPrograms.length % 2 !== 0;
+                return (
+                  <div
+                    key={prog.title}
+                    className={`p-2.5 rounded bg-[#6B1730]/60 border border-[#D4AF37]/40 flex flex-col justify-center ${
+                      isLastOdd ? 'col-span-2 text-center' : ''
+                    }`}
+                  >
+                    <div className="text-[11.5px] font-bold text-[#D4AF37] leading-tight mb-1">
+                      {prog.title}
+                    </div>
+                    <div className="text-[10.5px] leading-tight text-[#E8D5CE]">
+                      {prog.speaker}
+                    </div>
                   </div>
-                  <div className="text-[10.5px] leading-tight text-[#E8D5CE]">
-                    {prog.speaker}
-                  </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
 
