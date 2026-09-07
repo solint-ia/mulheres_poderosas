@@ -110,6 +110,27 @@ export const speakerGroups: SpeakerGroup[] = [
         socials: { instagram: 'https://instagram.com/dra_raqueldosea' },
       },
       {
+        id: 'sp-carolines',
+        name: 'Dra. Caroline Smith',
+        role: 'Médica Ginecologista & Especialista em Longevidade Íntima',
+        category: 'Saúde, Estética e Longevidade',
+        time: '09:00 às 10:00 · Painel de Abertura',
+        talk: 'Empoderamento Feminino: quando ciência, saúde íntima e longevidade caminham juntas',
+        talkDescription:
+          'Desmistificando a saúde íntima e a longevidade feminina através da ciência avançada, tecnologia a laser e tratamentos de prevenção de alta eficácia.',
+        takeaways: [
+          'Avanços da medicina a laser e tratamentos íntimos preventivos.',
+          'Como o equilíbrio hormonal afeta a disposição, clareza mental e vitalidade.',
+          'Longevidade com qualidade de vida e liberdade em todas as fases da mulher.',
+        ],
+        bio: [
+          'Dra. Caroline Smith é médica reconhecida pela abordagem humanizada e científica na saúde feminina, sendo pioneira em tecnologias para tratamentos corporais e íntimos.',
+        ],
+        quote: 'Conhecer o próprio corpo é a forma mais profunda de empoderamento.',
+        image: '/palestrantes/Dra Caroline Smith.jpeg',
+        socials: { instagram: 'https://instagram.com/dracarolinesmith' },
+      },
+      {
         id: 'sp-christiane',
         name: 'Christiane Espínola Bandeira de Mello',
         role: 'Cirurgiã Dentista / Esteticista e Cosmetóloga',
@@ -127,7 +148,7 @@ export const speakerGroups: SpeakerGroup[] = [
           'Christiane Espínola Bandeira de Mello é cirurgiã dentista, esteticista e cosmetóloga com vasta experiência em tecnologias avançadas para estímulo de colágeno, textura da pele e longevidade saudável.',
         ],
         quote: 'A verdadeira estética não transforma quem você é; ela ilumina sua melhor versão.',
-        image: '/palestrantes/Christiane Espínola Bandeira de Mello.jfif',
+        image: '/palestrantes/Christiane Espínola Bandeira de Mello.jpg',
         socials: { instagram: 'https://instagram.com/drachristianeespinola' },
       },
       {
@@ -431,6 +452,7 @@ export const shift0Rows: ScheduleRow[] = [
     categoryType: 'painel',
     items: [
       { speaker: 'Dra. Raquel Dosea', talk: 'A Beleza Rara da Mulher Empoderada' },
+      { speaker: 'Dra. Caroline Smith', talk: 'Empoderamento Feminino: quando ciência, saúde íntima e longevidade caminham juntas' },
     ],
   },
   {
