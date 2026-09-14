@@ -1,10 +1,8 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-import { useLeadModal } from '@/context/LeadModalContext';
 
 export default function Header() {
-  const { openLeadModal } = useLeadModal();
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
@@ -91,10 +89,9 @@ export default function Header() {
               {item.label}
             </a>
           ))}
-          <button
-            type="button"
-            onClick={() => openLeadModal()}
-            className="whitespace-nowrap text-[14px] font-bold tracking-[0.02em] px-6 py-3 rounded-md transition-all duration-200 shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#8B1E3F] cursor-pointer"
+          <a
+            href="/#ingressos"
+            className="whitespace-nowrap text-[14px] font-bold tracking-[0.02em] px-6 py-3 rounded-md transition-all duration-200 shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#8B1E3F] cursor-pointer inline-block text-center"
             style={{
               backgroundColor: '#8B1E3F',
               color: '#FDFBF7',
@@ -103,7 +100,7 @@ export default function Header() {
             onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.backgroundColor = '#8B1E3F')}
           >
             Garantir Meu Ingresso
-          </button>
+          </a>
         </nav>
 
         {/* Mobile Hamburger Button */}
@@ -149,13 +146,10 @@ export default function Header() {
                 {item.label}
               </a>
             ))}
-            <button
-              type="button"
-              onClick={() => {
-                handleLinkClick();
-                openLeadModal();
-              }}
-              className="mt-2 text-center text-[15px] font-bold py-3.5 px-5 rounded-lg shadow-md transition-colors cursor-pointer"
+            <a
+              href="/#ingressos"
+              onClick={handleLinkClick}
+              className="mt-2 text-center text-[15px] font-bold py-3.5 px-5 rounded-lg shadow-md transition-colors cursor-pointer inline-block"
               style={{
                 backgroundColor: '#8B1E3F',
                 color: '#FDFBF7',
@@ -164,7 +158,7 @@ export default function Header() {
               onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.backgroundColor = '#8B1E3F')}
             >
               Garantir Meu Ingresso
-            </button>
+            </a>
           </nav>
         </div>
       )}

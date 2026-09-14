@@ -1,12 +1,10 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useLeadModal } from '@/context/LeadModalContext';
 
 const MAPS_URL = 'https://maps.google.com/?q=Delmar+Hotel+Av.+Santos+Dumont,+1500+-+Coroa+do+Meio,+Aracaju+-+SE,+49035-730';
 
 export default function VenueSection() {
-  const { openLeadModal } = useLeadModal();
   return (
     <section
       className="flex flex-col gap-8 items-center px-[clamp(20px,6vw,72px)] py-[clamp(64px,9vw,120px)] overflow-hidden"
@@ -111,16 +109,15 @@ export default function VenueSection() {
         transition={{ duration: 0.5, delay: 0.2 }}
         className="mt-2"
       >
-        <button
-          type="button"
-          onClick={() => openLeadModal()}
+        <a
+          href="#ingressos"
           className="text-[15px] font-bold px-9 py-4 transition-all duration-200 rounded-md shadow-md hover:shadow-lg inline-block cursor-pointer"
           style={{ backgroundColor: '#8B1E3F', color: '#FDFBF7' }}
           onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.backgroundColor = '#6B1730')}
           onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.backgroundColor = '#8B1E3F')}
         >
           Garantir Meu Ingresso
-        </button>
+        </a>
       </motion.div>
     </section>
   );

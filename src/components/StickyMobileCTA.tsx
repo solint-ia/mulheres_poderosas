@@ -1,10 +1,8 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { useLeadModal } from '@/context/LeadModalContext';
 
 export default function StickyMobileCTA() {
-  const { openLeadModal } = useLeadModal();
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -27,16 +25,15 @@ export default function StickyMobileCTA() {
       <span className="text-[13px] font-semibold" style={{ color: '#E8D5CE' }}>
         A partir de R$ 300
       </span>
-      <button
-        type="button"
-        onClick={() => openLeadModal()}
-        className="whitespace-nowrap text-[13.5px] font-bold px-[22px] py-3 transition-colors duration-200 cursor-pointer"
+      <a
+        href="#ingressos"
+        className="whitespace-nowrap text-[13.5px] font-bold px-[22px] py-3 transition-colors duration-200 cursor-pointer inline-block"
         style={{ backgroundColor: '#D4AF37', color: '#3D1220', borderRadius: 2 }}
         onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.backgroundColor = '#C9A227')}
         onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.backgroundColor = '#D4AF37')}
       >
         Garantir Meu Ingresso
-      </button>
+      </a>
     </div>
   );
 }

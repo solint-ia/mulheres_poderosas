@@ -1,8 +1,6 @@
 'use client';
 
-import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { useLeadModal } from '@/context/LeadModalContext';
 
 function FloralOrn() {
   return (
@@ -16,7 +14,6 @@ function FloralOrn() {
 }
 
 export default function FinalCTA() {
-  const { openLeadModal } = useLeadModal();
 
   return (
     <section
@@ -76,16 +73,15 @@ export default function FinalCTA() {
         transition={{ duration: 0.5, delay: 0.3 }}
         className="mt-2"
       >
-        <button
-          type="button"
-          onClick={() => openLeadModal()}
-          className="text-[15px] font-bold px-10 py-[18px] transition-colors duration-200 cursor-pointer"
+        <a
+          href="#ingressos"
+          className="text-[15px] font-bold px-10 py-[18px] transition-colors duration-200 cursor-pointer inline-block"
           style={{ backgroundColor: '#D4AF37', color: '#3D1220', borderRadius: 2 }}
           onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.backgroundColor = '#C9A227')}
           onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.backgroundColor = '#D4AF37')}
         >
           Garantir Meu Ingresso
-        </button>
+        </a>
       </motion.div>
     </section>
   );

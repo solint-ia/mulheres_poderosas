@@ -57,22 +57,34 @@ export default function LeadCaptureModal() {
     e.preventDefault();
 
     if (!nome.trim() || nome.trim().length < 3) {
-      setErrorMsg('Por favor, informe seu nome completo.');
+      setErrorMsg('Por favor, informe seu nome.');
       return;
     }
 
     const digitsOnly = whatsapp.replace(/\D/g, '');
     if (digitsOnly.length < 10) {
-      setErrorMsg('Por favor, informe um WhatsApp válido com DDD.');
+      setErrorMsg('Por favor, informe um WhatsApp válido.');
       return;
+    }
+
+    // Pre-abertura síncrona da nova janela no clique para prevenir bloqueador de popups
+    const symplaWindow = typeof window !== 'undefined' ? window.open('', '_blank') : null;
+    if (symplaWindow) {
+      symplaWindow.opener = null;
     }
 
     setLoading(true);
     setErrorMsg('');
 
-    // Função de redirecionamento garantido para o Sympla
+    // Redirecionamento seguro abrindo em outra janela
     const redirectToSympla = () => {
-      window.location.href = SYMPLA_URL;
+      if (symplaWindow && !symplaWindow.closed) {
+        symplaWindow.location.href = SYMPLA_URL;
+      } else {
+        window.open(SYMPLA_URL, '_blank', 'noopener,noreferrer');
+      }
+      setLoading(false);
+      closeLeadModal();
     };
 
     try {
@@ -161,7 +173,7 @@ export default function LeadCaptureModal() {
                 {/* Campo Nome */}
                 <div>
                   <label className="block text-xs font-bold uppercase tracking-wider text-[#3D1220] mb-1.5">
-                    Nome Completo *
+                    Nome *
                   </label>
                   <div className="relative">
                     <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-[#8A7A80]">
@@ -185,7 +197,7 @@ export default function LeadCaptureModal() {
                 {/* Campo WhatsApp */}
                 <div>
                   <label className="block text-xs font-bold uppercase tracking-wider text-[#3D1220] mb-1.5">
-                    WhatsApp com DDD *
+                    WhatsApp *
                   </label>
                   <div className="relative">
                     <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-[#8A7A80]">

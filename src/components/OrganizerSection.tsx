@@ -19,17 +19,19 @@ export default function OrganizerSection() {
           {/* Lado Esquerdo: Realização (Maria Zélia) */}
           <div className="flex flex-col items-center justify-between text-center gap-6 px-4 md:px-12 py-4 md:border-r border-[rgba(212,175,55,0.25)]">
             <div className="flex flex-col items-center gap-5 w-full">
-              <div className="text-[12px] font-extrabold tracking-[0.2em] uppercase text-[#D4AF37]">
+              <div className="text-[12px] font-extrabold tracking-[0.2em] uppercase text-[#D4AF37] h-5 flex items-center justify-center">
                 Realização
               </div>
-              <div className="p-4 px-6 bg-[#FDFBF7] rounded-xl shadow-lg border border-[rgba(212,175,55,0.4)] flex items-center justify-center min-h-[140px] w-[min(260px,80%)]">
-                <img
-                  src="/assets/logo-organizer.png"
-                  alt="Maria Zélia Eventos e Representações"
-                  className="w-full max-w-[210px] sm:max-w-[230px] h-auto object-contain"
-                />
+              <div className="h-[210px] sm:h-[220px] w-full flex items-center justify-center">
+                <div className="p-4 px-6 bg-[#FDFBF7] rounded-xl shadow-lg border border-[rgba(212,175,55,0.4)] flex items-center justify-center h-full w-[min(260px,85%)]">
+                  <img
+                    src="/assets/logo-organizer.png"
+                    alt="Maria Zélia Eventos e Representações"
+                    className="w-full max-w-[210px] sm:max-w-[220px] max-h-[160px] h-auto object-contain"
+                  />
+                </div>
               </div>
-              <div>
+              <div className="min-h-[64px] sm:min-h-[70px] flex flex-col items-center justify-start text-center">
                 <h4
                   className="m-0 mb-1 text-[24px] sm:text-[26px] font-bold text-[#FDFBF7]"
                   style={{ fontFamily: "'Playfair Display', serif" }}
@@ -37,7 +39,7 @@ export default function OrganizerSection() {
                   Maria Zélia
                 </h4>
                 <span
-                  className="text-[17.5px] sm:text-[19px] font-bold text-[#D4AF37] tracking-wide block mt-1"
+                  className="text-[17px] sm:text-[18.5px] font-bold text-[#D4AF37] tracking-wide block"
                   style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: 'italic' }}
                 >
                   Eventos & Representações
@@ -49,20 +51,22 @@ export default function OrganizerSection() {
             </p>
           </div>
 
-          {/* Lado Direito: Idealização & Visão (Mariane Rocha) */}
+          {/* Lado Direito: Idealização & Visão (Mariana Rocha) */}
           <div className="flex flex-col items-center justify-between text-center gap-6 px-4 md:px-12 py-4">
             <div className="flex flex-col items-center gap-5 w-full">
-              <div className="text-[12px] font-extrabold tracking-[0.2em] uppercase text-[#D4AF37]">
+              <div className="text-[12px] font-extrabold tracking-[0.2em] uppercase text-[#D4AF37] h-5 flex items-center justify-center">
                 Idealização & Visão
               </div>
-              <div className="w-[140px] h-[140px] rounded-full overflow-hidden shadow-xl border-2 border-[#D4AF37] ring-4 ring-[#D4AF37]/20 flex items-center justify-center bg-[#E8D5CE]">
-                <img
-                  src="/palestrantes/Mariana Rocha.jpeg"
-                  alt="Mariana Rocha"
-                  className="w-full h-full object-cover object-top transition-transform duration-500 hover:scale-105"
-                />
+              <div className="h-[210px] sm:h-[220px] w-full flex items-center justify-center">
+                <div className="w-[210px] h-[210px] sm:w-[220px] sm:h-[220px] rounded-full overflow-hidden shadow-xl border-2 border-[#D4AF37] ring-4 ring-[#D4AF37]/20 flex items-center justify-center bg-[#E8D5CE] flex-none">
+                  <img
+                    src="/palestrantes/Mariana Rocha.jpeg"
+                    alt="Mariana Rocha"
+                    className="w-full h-full object-cover object-top transition-transform duration-500 hover:scale-105"
+                  />
+                </div>
               </div>
-              <div>
+              <div className="min-h-[64px] sm:min-h-[70px] flex flex-col items-center justify-start text-center">
                 <h4
                   className="m-0 mb-1 text-[24px] sm:text-[26px] font-bold text-[#FDFBF7]"
                   style={{ fontFamily: "'Playfair Display', serif" }}
@@ -70,7 +74,7 @@ export default function OrganizerSection() {
                   Mariana Rocha
                 </h4>
                 <span
-                  className="text-[17.5px] sm:text-[19px] font-bold text-[#D4AF37] tracking-wide block mt-1"
+                  className="text-[17px] sm:text-[18.5px] font-bold text-[#D4AF37] tracking-wide block"
                   style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: 'italic' }}
                 >
                   Idealizadora do Dia das Mulheres Poderosas

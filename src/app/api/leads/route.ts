@@ -8,7 +8,7 @@ export async function POST(request: Request) {
 
     if (!nome || typeof nome !== 'string' || nome.trim().length < 2) {
       return NextResponse.json(
-        { success: false, error: 'Por favor, informe seu nome completo.' },
+        { success: false, error: 'Por favor, informe seu nome.' },
         { status: 400 }
       );
     }
@@ -17,7 +17,7 @@ export async function POST(request: Request) {
     const digitsOnly = (whatsapp || '').replace(/\D/g, '');
     if (digitsOnly.length < 10) {
       return NextResponse.json(
-        { success: false, error: 'Por favor, informe um WhatsApp válido com DDD.' },
+        { success: false, error: 'Por favor, informe um WhatsApp válido.' },
         { status: 400 }
       );
     }

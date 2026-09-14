@@ -1,7 +1,6 @@
 'use client';
 
 import { motion, Variants } from 'framer-motion';
-import { useLeadModal } from '@/context/LeadModalContext';
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 24 },
@@ -34,7 +33,6 @@ function FloralOrn() {
 }
 
 export default function Hero() {
-  const { openLeadModal } = useLeadModal();
   return (
     <section
       className="relative overflow-hidden flex flex-col items-center text-center gap-6 px-[clamp(16px,5vw,64px)] pt-[clamp(40px,6vw,84px)] pb-[clamp(48px,7vw,96px)] min-h-[calc(100vh-84px)] justify-center bg-[#FDFBF7] bg-[url('/assets/plano-fundo-mobile.png')] md:bg-[url('/assets/pattern-floral-bg.png')] bg-[length:100%_100%] bg-no-repeat bg-center"
@@ -101,10 +99,9 @@ export default function Hero() {
           custom={0.4}
           className="flex gap-4 flex-wrap justify-center items-center mt-3 w-full"
         >
-          <button
-            type="button"
-            onClick={() => openLeadModal()}
-            className="w-full sm:w-auto text-[15px] font-bold tracking-[0.02em] px-9 py-4 transition-all duration-200 rounded-md text-center shadow-lg hover:shadow-xl cursor-pointer"
+          <a
+            href="#ingressos"
+            className="w-full sm:w-auto text-[15px] font-bold tracking-[0.02em] px-9 py-4 transition-all duration-200 rounded-md text-center shadow-lg hover:shadow-xl cursor-pointer inline-block"
             style={{
               backgroundColor: '#8B1E3F',
               color: '#FDFBF7',
@@ -113,7 +110,7 @@ export default function Hero() {
             onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.backgroundColor = '#8B1E3F')}
           >
             Garantir Meu Ingresso
-          </button>
+          </a>
           <a
             href="#pilares"
             className="w-full sm:w-auto text-[15px] font-semibold px-8 py-4 transition-all duration-200 rounded-md text-center bg-[#FFFFFF]/80 hover:bg-[#FFFFFF]"
