@@ -93,7 +93,7 @@ export default function Header() {
           ))}
           <button
             type="button"
-            onClick={() => openLeadModal('Header CTA')}
+            onClick={() => openLeadModal()}
             className="whitespace-nowrap text-[14px] font-bold tracking-[0.02em] px-6 py-3 rounded-md transition-all duration-200 shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#8B1E3F] cursor-pointer"
             style={{
               backgroundColor: '#8B1E3F',
@@ -153,7 +153,7 @@ export default function Header() {
               type="button"
               onClick={() => {
                 handleLinkClick();
-                openLeadModal('Header Mobile CTA');
+                openLeadModal();
               }}
               className="mt-2 text-center text-[15px] font-bold py-3.5 px-5 rounded-lg shadow-md transition-colors cursor-pointer"
               style={{

@@ -113,7 +113,7 @@ export default function VenueSection() {
       >
         <button
           type="button"
-          onClick={() => openLeadModal('Localização / Venue CTA')}
+          onClick={() => openLeadModal()}
           className="text-[15px] font-bold px-9 py-4 transition-all duration-200 rounded-md shadow-md hover:shadow-lg inline-block cursor-pointer"
           style={{ backgroundColor: '#8B1E3F', color: '#FDFBF7' }}
           onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.backgroundColor = '#6B1730')}

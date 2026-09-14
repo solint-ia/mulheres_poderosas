@@ -29,7 +29,7 @@ export default function StickyMobileCTA() {
       </span>
       <button
         type="button"
-        onClick={() => openLeadModal('Barra Fixa Mobile')}
+        onClick={() => openLeadModal()}
         className="whitespace-nowrap text-[13.5px] font-bold px-[22px] py-3 transition-colors duration-200 cursor-pointer"
         style={{ backgroundColor: '#D4AF37', color: '#3D1220', borderRadius: 2 }}
         onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.backgroundColor = '#C9A227')}

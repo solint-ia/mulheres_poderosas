@@ -14,7 +14,9 @@ import {
   ExternalLink,
   ShieldCheck,
   Calendar,
-  Filter
+  Filter,
+  Trash2,
+  Loader2
 } from 'lucide-react';
 import { Lead } from '@/lib/redis';
 
@@ -28,6 +30,7 @@ export default function AdminPage() {
   const [loading, setLoading] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedOrigin, setSelectedOrigin] = useState('ALL');
+  const [deletingId, setDeletingId] = useState<string | null>(null);
 
   // Recupera sessão salva no navegador durante a visita
   useEffect(() => {
@@ -75,6 +78,34 @@ export default function AdminPage() {
     setIsVerifying(true);
     setAuthError('');
     fetchLeads(password);
+  };
+
+  const handleDeleteLead = async (lead: Lead) => {
+    const confirmed = window.confirm(
+      `Deseja realmente excluir o registro de "${lead.nome}"?\n\nEsta ação removerá o lead permanentemente do Upstash Redis.`
+    );
+    if (!confirmed) return;
+
+    setDeletingId(lead.id);
+    try {
+      const res = await fetch(`/api/admin/leads?id=${encodeURIComponent(lead.id)}`, {
+        method: 'DELETE',
+        headers: {
+          'x-admin-password': password,
+        },
+      });
+
+      const data = await res.json();
+      if (res.ok && data.success) {
+        setLeads((prev) => prev.filter((l) => l.id !== lead.id));
+      } else {
+        alert(data.error || 'Não foi possível excluir o lead.');
+      }
+    } catch {
+      alert('Erro de conexão ao tentar excluir o lead.');
+    } finally {
+      setDeletingId(null);
+    }
   };
 
   const handleLogout = () => {
@@ -428,16 +459,32 @@ export default function AdminPage() {
                           </span>
                         </td>
                         <td className="py-3.5 px-4 text-right whitespace-nowrap">
-                          <a
-                            href={getWhatsAppLink(lead)}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs transition-colors shadow-xs"
-                          >
-                            <MessageCircle className="w-3.5 h-3.5" />
-                            <span>Chamar no WhatsApp</span>
-                            <ExternalLink className="w-3 h-3 opacity-70" />
-                          </a>
+                          <div className="inline-flex items-center justify-end gap-2">
+                            <a
+                              href={getWhatsAppLink(lead)}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs transition-colors shadow-xs"
+                            >
+                              <MessageCircle className="w-3.5 h-3.5" />
+                              <span>Chamar no WhatsApp</span>
+                              <ExternalLink className="w-3 h-3 opacity-70" />
+                            </a>
+
+                            <button
+                              type="button"
+                              onClick={() => handleDeleteLead(lead)}
+                              disabled={deletingId === lead.id}
+                              className="p-1.5 rounded-md text-[#8A7A80] hover:text-rose-600 hover:bg-rose-50 transition-colors cursor-pointer disabled:opacity-50"
+                              title={`Excluir lead de ${lead.nome}`}
+                            >
+                              {deletingId === lead.id ? (
+                                <Loader2 className="w-4 h-4 animate-spin text-rose-600" />
+                              ) : (
+                                <Trash2 className="w-4 h-4" />
+                              )}
+                            </button>
+                          </div>
                         </td>
                       </tr>
                     );

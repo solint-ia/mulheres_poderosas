@@ -13,9 +13,9 @@ const LeadModalContext = createContext<LeadModalContextType | undefined>(undefin
 
 export function LeadModalProvider({ children }: { children: ReactNode }) {
   const [isOpen, setIsOpen] = useState(false);
-  const [origin, setOrigin] = useState('Ingresso Geral');
+  const [origin, setOrigin] = useState('');
 
-  const openLeadModal = (originName: string = 'Ingresso Geral') => {
+  const openLeadModal = (originName: string = '') => {
     setOrigin(originName);
     setIsOpen(true);
   };

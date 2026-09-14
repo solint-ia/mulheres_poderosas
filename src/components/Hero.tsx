@@ -103,7 +103,7 @@ export default function Hero() {
         >
           <button
             type="button"
-            onClick={() => openLeadModal('Hero CTA')}
+            onClick={() => openLeadModal()}
             className="w-full sm:w-auto text-[15px] font-bold tracking-[0.02em] px-9 py-4 transition-all duration-200 rounded-md text-center shadow-lg hover:shadow-xl cursor-pointer"
             style={{
               backgroundColor: '#8B1E3F',

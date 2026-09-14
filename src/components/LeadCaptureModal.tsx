@@ -136,11 +136,13 @@ export default function LeadCaptureModal() {
             </button>
 
             <div className="p-6 sm:p-8">
-              {/* Badge da seleção */}
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#8B1E3F]/10 border border-[#8B1E3F]/20 text-[#8B1E3F] text-xs font-bold uppercase tracking-wider mb-3">
-                <Sparkles className="w-3.5 h-3.5 text-[#D4AF37]" />
-                <span>{origin}</span>
-              </div>
+              {/* Badge da seleção (somente para ingressos específicos de cards) */}
+              {origin && !origin.toLowerCase().includes('cta') && (
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#8B1E3F]/10 border border-[#8B1E3F]/20 text-[#8B1E3F] text-xs font-bold uppercase tracking-wider mb-3">
+                  <Sparkles className="w-3.5 h-3.5 text-[#D4AF37]" />
+                  <span>{origin}</span>
+                </div>
+              )}
 
               {/* Título */}
               <h2

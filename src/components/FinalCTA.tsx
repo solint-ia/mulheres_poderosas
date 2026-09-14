@@ -78,7 +78,7 @@ export default function FinalCTA() {
       >
         <button
           type="button"
-          onClick={() => openLeadModal('Final CTA')}
+          onClick={() => openLeadModal()}
           className="text-[15px] font-bold px-10 py-[18px] transition-colors duration-200 cursor-pointer"
           style={{ backgroundColor: '#D4AF37', color: '#3D1220', borderRadius: 2 }}
           onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.backgroundColor = '#C9A227')}
