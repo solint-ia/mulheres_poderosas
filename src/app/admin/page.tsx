@@ -16,8 +16,11 @@ import {
   Calendar,
   Filter,
   Trash2,
-  Loader2
+  Loader2,
+  AlertTriangle,
+  X
 } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Lead } from '@/lib/redis';
 
 export default function AdminPage() {
@@ -30,7 +33,9 @@ export default function AdminPage() {
   const [loading, setLoading] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedOrigin, setSelectedOrigin] = useState('ALL');
-  const [deletingId, setDeletingId] = useState<string | null>(null);
+  const [leadToDelete, setLeadToDelete] = useState<Lead | null>(null);
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [deleteError, setDeleteError] = useState('');
 
   // Recupera sessão salva no navegador durante a visita
   useEffect(() => {
@@ -80,15 +85,12 @@ export default function AdminPage() {
     fetchLeads(password);
   };
 
-  const handleDeleteLead = async (lead: Lead) => {
-    const confirmed = window.confirm(
-      `Deseja realmente excluir o registro de "${lead.nome}"?\n\nEsta ação removerá o lead permanentemente do Upstash Redis.`
-    );
-    if (!confirmed) return;
-
-    setDeletingId(lead.id);
+  const confirmDeleteLead = async () => {
+    if (!leadToDelete) return;
+    setIsDeleting(true);
+    setDeleteError('');
     try {
-      const res = await fetch(`/api/admin/leads?id=${encodeURIComponent(lead.id)}`, {
+      const res = await fetch(`/api/admin/leads?id=${encodeURIComponent(leadToDelete.id)}`, {
         method: 'DELETE',
         headers: {
           'x-admin-password': password,
@@ -97,14 +99,15 @@ export default function AdminPage() {
 
       const data = await res.json();
       if (res.ok && data.success) {
-        setLeads((prev) => prev.filter((l) => l.id !== lead.id));
+        setLeads((prev) => prev.filter((l) => l.id !== leadToDelete.id));
+        setLeadToDelete(null);
       } else {
-        alert(data.error || 'Não foi possível excluir o lead.');
+        setDeleteError(data.error || 'Não foi possível excluir o lead.');
       }
     } catch {
-      alert('Erro de conexão ao tentar excluir o lead.');
+      setDeleteError('Erro de conexão ao tentar excluir o lead.');
     } finally {
-      setDeletingId(null);
+      setIsDeleting(false);
     }
   };
 
@@ -473,16 +476,14 @@ export default function AdminPage() {
 
                             <button
                               type="button"
-                              onClick={() => handleDeleteLead(lead)}
-                              disabled={deletingId === lead.id}
-                              className="p-1.5 rounded-md text-[#8A7A80] hover:text-rose-600 hover:bg-rose-50 transition-colors cursor-pointer disabled:opacity-50"
+                              onClick={() => {
+                                setDeleteError('');
+                                setLeadToDelete(lead);
+                              }}
+                              className="p-1.5 rounded-md text-[#8A7A80] hover:text-rose-600 hover:bg-rose-50 transition-colors cursor-pointer"
                               title={`Excluir lead de ${lead.nome}`}
                             >
-                              {deletingId === lead.id ? (
-                                <Loader2 className="w-4 h-4 animate-spin text-rose-600" />
-                              ) : (
-                                <Trash2 className="w-4 h-4" />
-                              )}
+                              <Trash2 className="w-4 h-4" />
                             </button>
                           </div>
                         </td>
@@ -502,6 +503,125 @@ export default function AdminPage() {
           </div>
         </div>
       </main>
+
+      {/* Modal Customizado de Confirmação de Exclusão */}
+      <AnimatePresence>
+        {leadToDelete && (
+          <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 sm:p-6">
+            {/* Backdrop escuro com blur sutil */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => !isDeleting && setLeadToDelete(null)}
+              className="fixed inset-0 bg-black/65 backdrop-blur-xs"
+            />
+
+            {/* Conteúdo do Modal */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.94, y: 15 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.94, y: 15 }}
+              transition={{ type: 'spring', damping: 26, stiffness: 340 }}
+              className="relative w-full max-w-md bg-white rounded-2xl shadow-2xl border border-[#E8D5CE] overflow-hidden z-10"
+            >
+              {/* Faixa decorativa superior vermelha/marsala */}
+              <div className="h-1.5 bg-gradient-to-r from-rose-500 via-[#8B1E3F] to-rose-600" />
+
+              {/* Botão de Fechar no topo */}
+              <button
+                type="button"
+                onClick={() => !isDeleting && setLeadToDelete(null)}
+                disabled={isDeleting}
+                className="absolute top-4 right-4 p-1.5 text-[#8A7A80] hover:text-[#3D1220] hover:bg-black/5 rounded-full transition-colors cursor-pointer disabled:opacity-40"
+                aria-label="Fechar"
+              >
+                <X className="w-4 h-4" />
+              </button>
+
+              <div className="p-6 sm:p-7">
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="w-12 h-12 rounded-full bg-rose-50 border border-rose-100 flex items-center justify-center flex-none text-rose-600 shadow-xs">
+                    <Trash2 className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <h3
+                      className="text-xl font-bold text-[#3D1220] m-0 mb-1"
+                      style={{ fontFamily: "'Playfair Display', serif" }}
+                    >
+                      Excluir Lead
+                    </h3>
+                    <p className="text-xs text-[#8A7A80] m-0">
+                      Confirmação de segurança do Upstash Redis
+                    </p>
+                  </div>
+                </div>
+
+                <p className="text-sm text-[#5C4A50] leading-relaxed mb-4">
+                  Tem certeza que deseja excluir o registro de{' '}
+                  <strong className="text-[#3D1220] font-bold">"{leadToDelete.nome}"</strong>?
+                </p>
+
+                {/* Caixa de detalhes do contato */}
+                <div className="p-3.5 rounded-xl bg-[#FDFBF7] border border-[#E8D5CE] space-y-2 text-xs mb-4">
+                  <div className="flex justify-between items-center">
+                    <span className="text-[#8A7A80] font-medium">WhatsApp:</span>
+                    <span className="font-mono font-bold text-[#3D1220]">{leadToDelete.whatsapp}</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-[#8A7A80] font-medium">Interesse:</span>
+                    <span className="font-semibold text-[#8B1E3F]">{leadToDelete.origem}</span>
+                  </div>
+                </div>
+
+                <div className="p-3 rounded-lg bg-rose-50/80 border border-rose-200/60 flex items-start gap-2 text-xs text-rose-700">
+                  <AlertTriangle className="w-4 h-4 flex-none text-rose-600 mt-0.5" />
+                  <span>
+                    Esta ação é permanente e removerá o lead do banco de dados na nuvem.
+                  </span>
+                </div>
+
+                {deleteError && (
+                  <p className="text-xs font-semibold text-rose-700 bg-rose-100 border border-rose-300 rounded-lg p-2.5 mt-3">
+                    {deleteError}
+                  </p>
+                )}
+
+                {/* Botões de Ação */}
+                <div className="mt-6 flex items-center justify-end gap-3">
+                  <button
+                    type="button"
+                    disabled={isDeleting}
+                    onClick={() => setLeadToDelete(null)}
+                    className="px-4 py-2.5 rounded-lg border border-[#E8D5CE] text-[#5C4A50] hover:bg-black/5 text-xs font-bold transition-all cursor-pointer disabled:opacity-50"
+                  >
+                    Cancelar
+                  </button>
+
+                  <button
+                    type="button"
+                    disabled={isDeleting}
+                    onClick={confirmDeleteLead}
+                    className="px-5 py-2.5 rounded-lg bg-rose-600 hover:bg-rose-700 text-white text-xs font-bold transition-all shadow-sm hover:shadow-md flex items-center gap-2 cursor-pointer disabled:opacity-75"
+                  >
+                    {isDeleting ? (
+                      <>
+                        <Loader2 className="w-4 h-4 animate-spin" />
+                        <span>Excluindo...</span>
+                      </>
+                    ) : (
+                      <>
+                        <Trash2 className="w-4 h-4" />
+                        <span>Sim, Excluir</span>
+                      </>
+                    )}
+                  </button>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
