@@ -12,7 +12,6 @@ import {
   Ticket,
   Clock,
   ExternalLink,
-  ShieldCheck,
   Calendar,
   Filter,
   Trash2,
@@ -270,21 +269,16 @@ export default function AdminPage() {
       {/* Topo do Painel */}
       <header className="bg-white border-b border-[#E8D5CE] sticky top-0 z-20 shadow-xs">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex flex-wrap items-center justify-between gap-4">
-          <div className="flex items-center gap-3">
-            <div className="p-2 rounded-lg bg-[#8B1E3F]/10 text-[#8B1E3F]">
-              <ShieldCheck className="w-6 h-6" />
-            </div>
-            <div>
-              <h1
-                className="text-xl sm:text-2xl font-bold text-[#3D1220] m-0"
-                style={{ fontFamily: "'Playfair Display', serif" }}
-              >
-                Leads · Dia das Mulheres Poderosas
-              </h1>
-              <span className="text-xs text-[#8A7A80]">
-                Armazenado no Upstash Redis · Atualizado em tempo real
-              </span>
-            </div>
+          <div>
+            <h1
+              className="text-xl sm:text-2xl font-bold text-[#3D1220] m-0"
+              style={{ fontFamily: "'Playfair Display', serif" }}
+            >
+              Leads · Dia das Mulheres Poderosas
+            </h1>
+            <span className="text-xs text-[#8A7A80]">
+              Atualizado em tempo real
+            </span>
           </div>
 
           <div className="flex items-center gap-2">
@@ -499,7 +493,6 @@ export default function AdminPage() {
             <span>
               Exibindo <strong>{filteredLeads.length}</strong> de <strong>{leads.length}</strong> leads
             </span>
-            <span>Upstash Redis Database</span>
           </div>
         </div>
       </main>
@@ -552,7 +545,7 @@ export default function AdminPage() {
                       Excluir Lead
                     </h3>
                     <p className="text-xs text-[#8A7A80] m-0">
-                      Confirmação de segurança do Upstash Redis
+                      Esta ação não pode ser desfeita
                     </p>
                   </div>
                 </div>
@@ -577,7 +570,7 @@ export default function AdminPage() {
                 <div className="p-3 rounded-lg bg-rose-50/80 border border-rose-200/60 flex items-start gap-2 text-xs text-rose-700">
                   <AlertTriangle className="w-4 h-4 flex-none text-rose-600 mt-0.5" />
                   <span>
-                    Esta ação é permanente e removerá o lead do banco de dados na nuvem.
+                    Esta ação é permanente e removerá o contato do sistema.
                   </span>
                 </div>
 
