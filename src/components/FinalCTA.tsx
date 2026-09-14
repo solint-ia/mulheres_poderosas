@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { SYMPLA_URL } from '@/lib/constants';
+import { useLeadModal } from '@/context/LeadModalContext';
 
 function FloralOrn() {
   return (
@@ -16,6 +16,8 @@ function FloralOrn() {
 }
 
 export default function FinalCTA() {
+  const { openLeadModal } = useLeadModal();
+
   return (
     <section
       className="relative flex flex-col items-center gap-[22px] text-center px-[clamp(20px,6vw,72px)] py-[clamp(72px,10vw,130px)]"
@@ -74,17 +76,16 @@ export default function FinalCTA() {
         transition={{ duration: 0.5, delay: 0.3 }}
         className="mt-2"
       >
-        <a
-          href={SYMPLA_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-[15px] font-bold px-10 py-[18px] transition-colors duration-200"
+        <button
+          type="button"
+          onClick={() => openLeadModal('Final CTA')}
+          className="text-[15px] font-bold px-10 py-[18px] transition-colors duration-200 cursor-pointer"
           style={{ backgroundColor: '#D4AF37', color: '#3D1220', borderRadius: 2 }}
           onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.backgroundColor = '#C9A227')}
           onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.backgroundColor = '#D4AF37')}
         >
           Garantir Meu Ingresso
-        </a>
+        </button>
       </motion.div>
     </section>
   );

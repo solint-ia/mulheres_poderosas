@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { getSpeakerById, getAllSpeakers } from '@/lib/data';
-import { SYMPLA_URL } from '@/lib/constants';
+import SpeakerTicketButton from '@/components/SpeakerTicketButton';
 
 function getInitials(name: string): string {
   const parts = name.replace(/^(Dr\.|Dra\.|Dr)\s/i, '').split(' ');
@@ -241,15 +241,7 @@ export default async function SpeakerDetailPage({ params }: PageProps) {
                 </p>
               </div>
 
-              <a
-                href={SYMPLA_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full sm:w-auto whitespace-nowrap text-[14.5px] font-bold px-8 py-4 rounded-lg shadow-lg hover:scale-105 transition-all text-center"
-                style={{ backgroundColor: '#8B1E3F', color: '#FDFBF7' }}
-              >
-                Garantir Meu Ingresso
-              </a>
+              <SpeakerTicketButton speakerName={speaker.name} />
             </div>
           </div>
         </div>

@@ -1,11 +1,12 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { SYMPLA_URL } from '@/lib/constants';
+import { useLeadModal } from '@/context/LeadModalContext';
 
 const MAPS_URL = 'https://maps.google.com/?q=Delmar+Hotel+Av.+Santos+Dumont,+1500+-+Coroa+do+Meio,+Aracaju+-+SE,+49035-730';
 
 export default function VenueSection() {
+  const { openLeadModal } = useLeadModal();
   return (
     <section
       className="flex flex-col gap-8 items-center px-[clamp(20px,6vw,72px)] py-[clamp(64px,9vw,120px)] overflow-hidden"
@@ -17,31 +18,38 @@ export default function VenueSection() {
         backgroundPosition: 'center',
       }}
     >
+      {/* Cabeçalho da Seção */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="text-center max-w-[720px]"
+        className="text-center max-w-[680px]"
       >
-        <div className="flex items-center justify-center gap-2 mb-2">
-          <span className="h-[1px] w-6 bg-[#D4AF37]" />
+        <div className="flex items-center justify-center gap-2 mb-3">
+          <span className="h-[1px] w-8 bg-[#D4AF37]" />
           <span className="text-[12px] font-bold tracking-[0.18em] uppercase text-[#D4AF37]">
-            Data e local do evento
+            Onde Acontece
           </span>
-          <span className="h-[1px] w-6 bg-[#D4AF37]" />
+          <span className="h-[1px] w-8 bg-[#D4AF37]" />
         </div>
         <h2
-          className="m-0 mb-2 text-[clamp(26px,3.6vw,40px)] font-bold"
+          className="m-0 mb-3"
           style={{
             fontFamily: "'Playfair Display', serif",
+            fontWeight: 700,
+            fontSize: 'clamp(28px,3.6vw,44px)',
             color: '#3D1220',
           }}
         >
-          Delmar Hotel · Aracaju/SE
+          O Cenário Perfeito
         </h2>
-        <p className="text-[16px] font-semibold text-[#8B1E3F] m-0">
-          24 de Outubro de 2026 · Das 08:00 às 19:30
+        <p
+          className="m-0 text-[15.5px] leading-[1.75]"
+          style={{ color: '#5C4A50' }}
+        >
+          Um dos mais tradicionais e sofisticados hotéis de Aracaju, pronto para receber você com
+          conforto, estrutura de ponta e vista para o mar da Atalaia.
         </p>
       </motion.div>
 
@@ -103,17 +111,16 @@ export default function VenueSection() {
         transition={{ duration: 0.5, delay: 0.2 }}
         className="mt-2"
       >
-        <a
-          href={SYMPLA_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-[15px] font-bold px-9 py-4 transition-all duration-200 rounded-md shadow-md hover:shadow-lg inline-block"
+        <button
+          type="button"
+          onClick={() => openLeadModal('Localização / Venue CTA')}
+          className="text-[15px] font-bold px-9 py-4 transition-all duration-200 rounded-md shadow-md hover:shadow-lg inline-block cursor-pointer"
           style={{ backgroundColor: '#8B1E3F', color: '#FDFBF7' }}
           onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.backgroundColor = '#6B1730')}
           onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.backgroundColor = '#8B1E3F')}
         >
           Garantir Meu Ingresso
-        </a>
+        </button>
       </motion.div>
     </section>
   );

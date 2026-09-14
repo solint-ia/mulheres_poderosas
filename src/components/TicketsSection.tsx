@@ -1,8 +1,8 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { SYMPLA_URL } from '@/lib/constants';
 import { legacyPrograms } from '@/lib/data';
+import { useLeadModal } from '@/context/LeadModalContext';
 
 function GoldLine() {
   return <div className="h-[1px] my-2" style={{ backgroundColor: 'rgba(212,175,55,0.35)' }} />;
@@ -19,6 +19,7 @@ function CheckItem({ children, light = false }: { children: React.ReactNode; lig
 
 
 export default function TicketsSection() {
+  const { openLeadModal } = useLeadModal();
   return (
     <section
       id="ingressos"
@@ -116,11 +117,10 @@ export default function TicketsSection() {
 
           {/* Botão de Compra */}
           <div className="mt-8 pt-4 border-t border-[rgba(139,30,63,0.1)]">
-            <a
-              href={SYMPLA_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block w-full text-center text-[14px] font-bold py-3.5 px-4 rounded-md transition-all duration-200 uppercase tracking-wider"
+            <button
+              type="button"
+              onClick={() => openLeadModal('Ingresso Essential (R$ 300)')}
+              className="block w-full text-center text-[14px] font-bold py-3.5 px-4 rounded-md transition-all duration-200 uppercase tracking-wider cursor-pointer"
               style={{ border: '2px solid #8B1E3F', color: '#8B1E3F', backgroundColor: 'transparent' }}
               onMouseEnter={(e) => {
                 const el = e.currentTarget as HTMLElement;
@@ -134,7 +134,7 @@ export default function TicketsSection() {
               }}
             >
               Garantir Essential
-            </a>
+            </button>
           </div>
         </motion.div>
 
@@ -188,17 +188,16 @@ export default function TicketsSection() {
 
           {/* Botão de Compra */}
           <div className="mt-8 pt-4 border-t border-[#D4AF37]/30">
-            <a
-              href={SYMPLA_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block w-full text-center text-[14px] font-extrabold py-4 px-4 rounded-md transition-all duration-200 uppercase tracking-wider shadow-lg"
+            <button
+              type="button"
+              onClick={() => openLeadModal('Ingresso Signature VIP (R$ 1.000)')}
+              className="block w-full text-center text-[14px] font-extrabold py-4 px-4 rounded-md transition-all duration-200 uppercase tracking-wider shadow-lg cursor-pointer"
               style={{ backgroundColor: '#D4AF37', color: '#3D1220' }}
               onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.backgroundColor = '#C9A227')}
               onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.backgroundColor = '#D4AF37')}
             >
               Garantir Signature VIP
-            </a>
+            </button>
           </div>
         </motion.div>
 
@@ -260,17 +259,16 @@ export default function TicketsSection() {
 
           {/* Botão de Compra */}
           <div className="mt-8 pt-4 border-t border-[#D4AF37]/30">
-            <a
-              href={SYMPLA_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block w-full text-center text-[14px] font-extrabold py-4 px-4 rounded-md transition-all duration-200 uppercase tracking-wider"
+            <button
+              type="button"
+              onClick={() => openLeadModal('Ingresso Master Legacy (R$ 4.000)')}
+              className="block w-full text-center text-[14px] font-extrabold py-4 px-4 rounded-md transition-all duration-200 uppercase tracking-wider cursor-pointer"
               style={{ backgroundColor: '#D4AF37', color: '#3D1220' }}
               onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.backgroundColor = '#C9A227')}
               onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.backgroundColor = '#D4AF37')}
             >
               Garantir Master Legacy
-            </a>
+            </button>
           </div>
         </motion.div>
 
