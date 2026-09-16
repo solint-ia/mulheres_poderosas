@@ -308,7 +308,7 @@ export const speakerGroups: SpeakerGroup[] = [
       {
         id: 'sp-guilherme',
         name: 'Dr. Guilherme Britto',
-        role: 'Especialista em Desenvolvimento Humano & Gestão Emocional',
+        role: 'Médico Especialista em Emagrecimento & Hipertrofia e Medicina do Estilo de Vida',
         category: 'Mente, Genética e Equilíbrio',
         time: '10:50 às 11:30 · Bloco Manhã',
         talk: 'A mulher por trás da empreendedora de sucesso',
