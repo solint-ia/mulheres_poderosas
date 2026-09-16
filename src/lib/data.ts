@@ -257,6 +257,7 @@ export const speakerGroups: SpeakerGroup[] = [
         ],
         quote: 'Planejamento contábil e tributário é a base sólida para o crescimento seguro e lucrativo do seu negócio.',
         image: '/palestrantes/antonio soares.png',
+        socials: { instagram: 'https://instagram.com/soaresneto_' },
       },
       {
         id: 'sp-mineiacarvalho',
