@@ -52,6 +52,7 @@ export const metadata: Metadata = {
 };
 
 import { Providers } from '@/components/Providers';
+import MetaPixel from '@/components/analytics/MetaPixel';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -61,6 +62,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       className={`${playfair.variable} ${cormorant.variable} ${jakarta.variable}`}
     >
       <body suppressHydrationWarning>
+        <MetaPixel />
         <Providers>{children}</Providers>
       </body>
     </html>

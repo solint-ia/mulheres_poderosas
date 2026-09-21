@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X, Lock, ArrowRight, Loader2, User, Phone, Sparkles } from 'lucide-react';
 import { useLeadModal } from '@/context/LeadModalContext';
 import { SYMPLA_URL } from '@/lib/constants';
+import { event as fbEvent } from '@/lib/fpixel';
 
 export default function LeadCaptureModal() {
   const { isOpen, origin, closeLeadModal } = useLeadModal();
@@ -66,6 +67,11 @@ export default function LeadCaptureModal() {
       setErrorMsg('Por favor, informe um WhatsApp válido.');
       return;
     }
+
+    // Registra evento de conversão Lead no Meta Pixel
+    fbEvent('Lead', {
+      content_name: origin || 'Ingresso Geral',
+    });
 
     // Pre-abertura síncrona da nova janela no clique para prevenir bloqueador de popups
     const symplaWindow = typeof window !== 'undefined' ? window.open('', '_blank') : null;
