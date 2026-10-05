@@ -21,6 +21,7 @@ import {
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Lead } from '@/lib/redis';
+import TicketsEditor from '@/components/admin/TicketsEditor';
 
 export default function AdminPage() {
   const [password, setPassword] = useState('');
@@ -35,6 +36,7 @@ export default function AdminPage() {
   const [leadToDelete, setLeadToDelete] = useState<Lead | null>(null);
   const [isDeleting, setIsDeleting] = useState(false);
   const [deleteError, setDeleteError] = useState('');
+  const [activeTab, setActiveTab] = useState<'leads' | 'tickets'>('leads');
 
   // Recupera sessão salva no navegador durante a visita
   useEffect(() => {
@@ -274,14 +276,35 @@ export default function AdminPage() {
               className="text-xl sm:text-2xl font-bold text-[#3D1220] m-0"
               style={{ fontFamily: "'Playfair Display', serif" }}
             >
-              Leads · Dia das Mulheres Poderosas
+              Painel · Dia das Mulheres Poderosas
             </h1>
-            <span className="text-xs text-[#8A7A80]">
-              Atualizado em tempo real
-            </span>
+            <div className="flex items-center gap-1 mt-2">
+              {(
+                [
+                  { id: 'leads', label: 'Leads' },
+                  { id: 'tickets', label: 'Ingressos' },
+                ] as const
+              ).map((tab) => (
+                <button
+                  key={tab.id}
+                  type="button"
+                  onClick={() => setActiveTab(tab.id)}
+                  className="px-3.5 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wider transition-all cursor-pointer"
+                  style={
+                    activeTab === tab.id
+                      ? { backgroundColor: '#8B1E3F', color: '#FFFFFF' }
+                      : { backgroundColor: 'transparent', color: '#5C4A50' }
+                  }
+                >
+                  {tab.label}
+                </button>
+              ))}
+            </div>
           </div>
 
           <div className="flex items-center gap-2">
+            {activeTab === 'leads' && (
+            <>
             <button
               onClick={() => fetchLeads(password)}
               disabled={loading}
@@ -300,6 +323,8 @@ export default function AdminPage() {
               <Download className="w-4 h-4 text-[#8B1E3F]" />
               <span>Exportar CSV</span>
             </button>
+            </>
+            )}
 
             <button
               onClick={handleLogout}
@@ -313,6 +338,13 @@ export default function AdminPage() {
         </div>
       </header>
 
+      {activeTab === 'tickets' && (
+        <main className="max-w-7xl mx-auto px-4 sm:px-6 py-8">
+          <TicketsEditor password={password} />
+        </main>
+      )}
+
+      {activeTab === 'leads' && (
       <main className="max-w-7xl mx-auto px-4 sm:px-6 py-8 space-y-6">
         {/* Cards de Métricas */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -437,17 +469,17 @@ export default function AdminPage() {
                           <span
                             className="inline-flex items-center px-2.5 py-1 rounded-full text-[11px] font-bold"
                             style={{
-                              backgroundColor: lead.origem?.includes('VIP')
+                              backgroundColor: /VIP|Signature/.test(lead.origem || '')
                                 ? '#D4AF3720'
                                 : lead.origem?.includes('Legacy')
                                 ? '#8B1E3F18'
                                 : '#E8D5CE50',
-                              color: lead.origem?.includes('VIP')
+                              color: /VIP|Signature/.test(lead.origem || '')
                                 ? '#8B1E3F'
                                 : lead.origem?.includes('Legacy')
                                 ? '#3D1220'
                                 : '#5C4A50',
-                              border: lead.origem?.includes('VIP')
+                              border: /VIP|Signature/.test(lead.origem || '')
                                 ? '1px solid #D4AF3780'
                                 : '1px solid #E8D5CE',
                             }}
@@ -496,6 +528,7 @@ export default function AdminPage() {
           </div>
         </div>
       </main>
+      )}
 
       {/* Modal Customizado de Confirmação de Exclusão */}
       <AnimatePresence>

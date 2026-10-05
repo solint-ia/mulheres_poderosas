@@ -13,8 +13,15 @@ import OrganizerSection from '../components/OrganizerSection';
 import FinalCTA from '../components/FinalCTA';
 import Footer from '../components/Footer';
 import StickyMobileCTA from '../components/StickyMobileCTA';
+import { getCachedTickets } from '../lib/tickets-store';
+import { lowestTicketPrice } from '../lib/tickets';
 
-export default function Home() {
+// Os ingressos vêm do Redis (editáveis em /admin); o painel revalida a página ao salvar
+export const revalidate = 300;
+
+export default async function Home() {
+  const tickets = await getCachedTickets();
+
   return (
     <>
       <Header />
@@ -27,13 +34,13 @@ export default function Home() {
         <AudienceSection />
         <ExperienceSection />
         <InvestmentSection />
-        <TicketsSection />
+        <TicketsSection tickets={tickets} />
         <FAQSection />
         <OrganizerSection />
         <FinalCTA />
       </main>
       <Footer />
-      <StickyMobileCTA />
+      <StickyMobileCTA fromPrice={lowestTicketPrice(tickets)} />
     </>
   );
 }

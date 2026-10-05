@@ -594,23 +594,13 @@ export const faqItems: FaqItem[] = [
     a: 'Todos os botões de ingresso levam à página oficial do evento no Sympla, onde a compra é processada com segurança e você recebe a confirmação por e-mail.',
   },
   {
-    q: 'Como escolho meu programa no ingresso Legacy?',
-    a: 'No momento da compra do ingresso Master Legacy, você seleciona 1 dos 5 programas exclusivos: Harmonização Facial, Laser CO2 na face, Laser CO2 na parte íntima, Gestão Empresarial ou Mentoria em Inteligência Artificial.',
+    q: 'Como funciona o ingresso Essencial Solidário?',
+    a: 'O Essencial Solidário tem valor reduzido mediante a doação de alimentos e inclui todos os benefícios do Essential. Além de viver a experiência, você contribui com quem mais precisa.',
   },
   {
     q: 'Qual a diferença entre os ingressos?',
-    a: 'Essential dá acesso completo à programação. Signature soma conforto, proximidade e um jantar exclusivo. Legacy acrescenta um programa de desenvolvimento individual escolhido por você.',
+    a: 'Essential dá acesso completo à programação. Signature soma jantar com os palestrantes, assento reservado nas primeiras fileiras e networking exclusivo. Essencial Solidário inclui todos os benefícios do Essential, com valor reduzido mediante a doação de alimentos.',
   },
-];
-
-// ─── Ingressos ────────────────────────────────────────────────────────────────
-
-export const legacyPrograms = [
-  { title: 'Harmonização Facial', speaker: 'Dra. Raquel Dosea' },
-  { title: 'Laser CO2 na Face', speaker: 'Christiane Espínola' },
-  { title: 'Laser CO2 Íntimo', speaker: 'Dra. Caroline Smith' },
-  { title: 'Gestão Empresarial', speaker: 'Italo Marcel' },
-  { title: 'Mentoria em Inteligência Artificial', speaker: 'Leonardo Lima' },
 ];
 
 // ─── Audience cards ───────────────────────────────────────────────────────────

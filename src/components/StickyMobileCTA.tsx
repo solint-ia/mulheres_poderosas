@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 
-export default function StickyMobileCTA() {
+export default function StickyMobileCTA({ fromPrice }: { fromPrice: string }) {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -23,7 +23,7 @@ export default function StickyMobileCTA() {
       }}
     >
       <span className="text-[13px] font-semibold" style={{ color: '#E8D5CE' }}>
-        A partir de R$ 300
+        A partir de R$ {fromPrice}
       </span>
       <a
         href="#ingressos"
